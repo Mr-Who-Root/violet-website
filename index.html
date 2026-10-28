@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..800&family=Hanken+Grotesk:wght@700&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400..700&display=swap">
 <link rel="stylesheet" href="assets/motion/violet-motion.css?v=b8c4e7733e">
-<link rel="stylesheet" href="assets/css/site.css?v=944aca82ae">
-<script src="assets/js/site.js?v=553d10aa54" defer></script>
+<link rel="stylesheet" href="assets/css/site.css?v=b2497213f0">
+<script src="assets/js/site.js?v=67e4901fdc" defer></script>
 <script src="assets/js/art.js?v=268a24bd73" defer></script>
 </head>
 <body>
@@ -146,8 +146,9 @@
     <div class="wrap">
       <div class="hero__copy">
         <a class="announce" href="#launch">
-          <span class="announce__tag">Soon</span>
-          <span class="announce__text">Violet is deploying soon</span>
+          <span class="announce__tag"><span class="announce__ping" aria-hidden="true"></span>Deploying soon</span>
+          <span class="announce__text">Release 1 of 4 in development</span>
+          <span class="announce__steps" aria-hidden="true"><i class="is-now"></i><i></i><i></i><i></i></span>
         </a>
         <h1 id="hero-title"><span>Run red and blue team operations</span> <span>from one workspace.</span></h1>
         <p class="lead">Violet lets a smaller team test its defenses, read its logs, and contain incidents in seconds, with every action scoped, approved, and audited.</p>
@@ -179,21 +180,13 @@
       <div class="problem__body">
         <span class="label">The reality for security teams</span>
         <h2 id="problem-title">Good security work needs experts. <b>Most teams can't hire enough of them.</b></h2>
-        <svg class="tangle" viewBox="0 0 220 160" aria-hidden="true" focusable="false">
-          <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M24 118 C 52 30, 112 138, 150 62 S 196 32, 196 96" stroke="#14151C" stroke-width="16"/>
-            <path d="M24 118 C 52 30, 112 138, 150 62 S 196 32, 196 96" stroke="#D6455C" stroke-width="10"/>
-            <path d="M30 42 C 84 132, 120 22, 186 122" stroke="#14151C" stroke-width="16"/>
-            <path d="M30 42 C 84 132, 120 22, 186 122" stroke="#3E8BFF" stroke-width="10"/>
-            <path d="M70 142 C 40 80, 132 50, 110 116 S 168 144, 198 44" stroke="#14151C" stroke-width="16"/>
-            <path d="M70 142 C 40 80, 132 50, 110 116 S 168 144, 198 44" stroke="#5B46D9" stroke-width="10"/>
-          </g>
-          <g stroke="#14151C" stroke-width="3" stroke-linejoin="round">
-            <polygon points="-2,-11 16,0 -2,11" fill="#D6455C" transform="translate(196 98) rotate(90)"/>
-            <polygon points="-2,-11 16,0 -2,11" fill="#3E8BFF" transform="translate(186 124) rotate(56)"/>
-            <polygon points="-2,-11 16,0 -2,11" fill="#5B46D9" transform="translate(198 42) rotate(-73)"/>
-          </g>
-        </svg>
+        <figure class="queue" aria-label="Illustration: alerts keep arriving while one analyst is on shift">
+          <div class="queue__head"><span class="queue__title">Alert queue</span><span class="queue__state"><span class="queue__dot" aria-hidden="true"></span>Waiting for an analyst</span></div>
+          <div class="queue__window" aria-hidden="true">
+            <ul class="queue__list"><li><span class="sev sev--critical"><i></i>Critical</span><span class="queue__event">Repeated failed logins</span><span class="queue__src">vpn-gw-1</span></li><li><span class="sev sev--high"><i></i>High</span><span class="queue__event">Unusual database query</span><span class="queue__src">db-prod-2</span></li><li><span class="sev sev--medium"><i></i>Medium</span><span class="queue__event">New admin account</span><span class="queue__src">idp</span></li><li><span class="sev sev--high"><i></i>High</span><span class="queue__event">Malware signature match</span><span class="queue__src">ws-114</span></li><li><span class="sev sev--low"><i></i>Low</span><span class="queue__event">Port 8443 newly open</span><span class="queue__src">web-03</span></li><li><span class="sev sev--medium"><i></i>Medium</span><span class="queue__event">Impossible travel sign-in</span><span class="queue__src">sso</span></li><li><span class="sev sev--critical"><i></i>Critical</span><span class="queue__event">Repeated failed logins</span><span class="queue__src">vpn-gw-1</span></li><li><span class="sev sev--high"><i></i>High</span><span class="queue__event">Unusual database query</span><span class="queue__src">db-prod-2</span></li><li><span class="sev sev--medium"><i></i>Medium</span><span class="queue__event">New admin account</span><span class="queue__src">idp</span></li><li><span class="sev sev--high"><i></i>High</span><span class="queue__event">Malware signature match</span><span class="queue__src">ws-114</span></li><li><span class="sev sev--low"><i></i>Low</span><span class="queue__event">Port 8443 newly open</span><span class="queue__src">web-03</span></li><li><span class="sev sev--medium"><i></i>Medium</span><span class="queue__event">Impossible travel sign-in</span><span class="queue__src">sso</span></li></ul>
+          </div>
+          <div class="queue__foot"><span class="queue__avatar" aria-hidden="true">L1</span>1 analyst on shift</div>
+        </figure>
         <p>Red teamers chain tools by hand, so assessments happen rarely. Blue teamers read logs line by line while an incident unfolds. L1 analysts decide what to escalate without the depth to understand the attack.</p>
         <p>None of them is doing it wrong. The expertise is gated. Violet lowers that gate without lowering the quality of the work.</p>
       </div>
@@ -242,32 +235,38 @@
         <p class="lead">Every module shares the same canvas, connectors, and audit trail, so a finding on one side shapes the response on the other.</p>
       </div>
 
-      <div class="teams">
-        <div class="teams__tabs" role="tablist" aria-label="Modules" data-tabs>
-          <button class="team-tab tone-red" type="button" role="tab" id="tab-red" aria-controls="panel-red" aria-selected="true">
-            <span class="team-tab__name">Red team</span>
-            <span class="team-tab__desc">Assessment flows behind an ownership gate, with an AI report for every run.</span>
+      <div class="modules" data-modules>
+        <div class="modules__tabs" role="tablist" aria-label="Modules" aria-orientation="vertical" data-tabs>
+          <button class="module-tab tone-red" type="button" role="tab" id="tab-red" aria-controls="panel-red" aria-selected="true">
+            <span class="module-tab__bar" aria-hidden="true"><i></i></span>
+            <span class="module-tab__name">Red team</span>
+            <span class="module-tab__desc">Assessment flows behind an ownership gate, with an AI report for every run.</span>
           </button>
-          <button class="team-tab tone-blue" type="button" role="tab" id="tab-blue" aria-controls="panel-blue" aria-selected="false" tabindex="-1">
-            <span class="team-tab__name">Blue team</span>
-            <span class="team-tab__desc">Log ingestion and AI summaries, with a risk score on every event.</span>
+          <button class="module-tab tone-blue" type="button" role="tab" id="tab-blue" aria-controls="panel-blue" aria-selected="false" tabindex="-1">
+            <span class="module-tab__bar" aria-hidden="true"><i></i></span>
+            <span class="module-tab__name">Blue team</span>
+            <span class="module-tab__desc">Log ingestion and AI summaries, with a risk score on every event.</span>
           </button>
-          <button class="team-tab tone-violet" type="button" role="tab" id="tab-response" aria-controls="panel-response" aria-selected="false" tabindex="-1">
-            <span class="team-tab__name">Response</span>
-            <span class="team-tab__desc">Trigger, condition, action, and API flows that run in seconds.</span>
+          <button class="module-tab tone-violet" type="button" role="tab" id="tab-response" aria-controls="panel-response" aria-selected="false" tabindex="-1">
+            <span class="module-tab__bar" aria-hidden="true"><i></i></span>
+            <span class="module-tab__name">Response</span>
+            <span class="module-tab__desc">Trigger, condition, action, and API flows that run in seconds.</span>
           </button>
-          <button class="team-tab tone-teal" type="button" role="tab" id="tab-kb" aria-controls="panel-kb" aria-selected="false" tabindex="-1">
-            <span class="team-tab__name">Knowledge</span>
-            <span class="team-tab__desc">Grounded answers on tactics, defenses, and threat intel, in context.</span>
+          <button class="module-tab tone-teal" type="button" role="tab" id="tab-kb" aria-controls="panel-kb" aria-selected="false" tabindex="-1">
+            <span class="module-tab__bar" aria-hidden="true"><i></i></span>
+            <span class="module-tab__name">Knowledge</span>
+            <span class="module-tab__desc">Grounded answers on tactics, defenses, and threat intel, in context.</span>
           </button>
-          <button class="team-tab tone-orange" type="button" role="tab" id="tab-mssp" aria-controls="panel-mssp" aria-selected="false" tabindex="-1">
-            <span class="team-tab__name">MSSP</span>
-            <span class="team-tab__desc">Every client from one console, with each client's data kept apart.</span>
+          <button class="module-tab tone-orange" type="button" role="tab" id="tab-mssp" aria-controls="panel-mssp" aria-selected="false" tabindex="-1">
+            <span class="module-tab__bar" aria-hidden="true"><i></i></span>
+            <span class="module-tab__name">MSSP</span>
+            <span class="module-tab__desc">Every client from one console, with each client's data kept apart.</span>
           </button>
         </div>
+        <div class="modules__stage">
 
-        <div class="team-panel tone-red" role="tabpanel" id="panel-red" aria-labelledby="tab-red">
-          <span class="team-panel__label">Product preview</span>
+
+        <div class="module-panel tone-red" role="tabpanel" id="panel-red" aria-labelledby="tab-red">
           <figure class="shot">
             <div class="app">
               <aside class="app__side" aria-hidden="true">
@@ -293,14 +292,23 @@
                     <li class="flow__step"><div class="node node--api"><span class="node__type"><i class="shape shape--api"></i>Report</span><span class="node__title">AI report</span><code class="node__param">risk per finding</code></div></li>
                   </ol>
                 </div>
-                <p class="note">Last run: 2 high, 6 medium, and 11 low findings.</p>
+                <div class="table-scroll">
+                  <table class="data">
+                    <caption class="visually-hidden">Example findings from the last assessment run</caption>
+                    <thead><tr><th scope="col">Severity</th><th scope="col">AI report finding</th><th scope="col">Asset</th><th class="num" scope="col">Risk</th></tr></thead>
+                    <tbody>
+                      <tr><td><span class="sev sev--high"><i></i>High</span></td><td class="text">Admin panel accepts default credentials</td><td>198.51.100.22:8080</td><td class="num">81</td></tr>
+                      <tr><td><span class="sev sev--high"><i></i>High</span></td><td class="text">TLS 1.0 still enabled</td><td>198.51.100.14:443</td><td class="num">72</td></tr>
+                      <tr><td><span class="sev sev--medium"><i></i>Medium</span></td><td class="text">SSH server version is out of date</td><td>198.51.100.9:22</td><td class="num">48</td></tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </figure>
         </div>
 
-        <div class="team-panel tone-blue" role="tabpanel" id="panel-blue" aria-labelledby="tab-blue" hidden>
-          <span class="team-panel__label">Product preview</span>
+        <div class="module-panel tone-blue" role="tabpanel" id="panel-blue" aria-labelledby="tab-blue" hidden>
           <figure class="shot">
             <div class="app">
               <aside class="app__side" aria-hidden="true">
@@ -337,8 +345,7 @@
           </figure>
         </div>
 
-        <div class="team-panel tone-violet" role="tabpanel" id="panel-response" aria-labelledby="tab-response" hidden>
-          <span class="team-panel__label">Product preview</span>
+        <div class="module-panel tone-violet" role="tabpanel" id="panel-response" aria-labelledby="tab-response" hidden>
           <figure class="shot">
             <div class="app">
               <aside class="app__side" aria-hidden="true">
@@ -371,8 +378,7 @@
           </figure>
         </div>
 
-        <div class="team-panel tone-teal" role="tabpanel" id="panel-kb" aria-labelledby="tab-kb" hidden>
-          <span class="team-panel__label">Product preview</span>
+        <div class="module-panel tone-teal" role="tabpanel" id="panel-kb" aria-labelledby="tab-kb" hidden>
           <figure class="shot">
             <div class="app">
               <aside class="app__side" aria-hidden="true">
@@ -402,8 +408,7 @@
           </figure>
         </div>
 
-        <div class="team-panel tone-orange" role="tabpanel" id="panel-mssp" aria-labelledby="tab-mssp" hidden>
-          <span class="team-panel__label">Product preview</span>
+        <div class="module-panel tone-orange" role="tabpanel" id="panel-mssp" aria-labelledby="tab-mssp" hidden>
           <figure class="shot">
             <div class="app">
               <aside class="app__side" aria-hidden="true">
@@ -434,6 +439,8 @@
               </div>
             </div>
           </figure>
+        </div>
+          <p class="modules__caption">Product preview. Violet is in development, and the interface may change before release.</p>
         </div>
       </div>
     </div>

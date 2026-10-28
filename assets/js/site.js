@@ -72,6 +72,7 @@
   function initTabs() {
     var list = document.querySelector("[data-tabs]");
     if (!list) return;
+    var root = list.closest("[data-modules]");
     var tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
     if (!tabs.length) return;
 
@@ -83,18 +84,15 @@
         var panel = document.getElementById(tab.getAttribute("aria-controls"));
         if (panel) panel.hidden = !selected;
       });
-      if (focus) {
-        tabs[index].focus();
-        tabs[index].scrollIntoView({ block: "nearest", inline: "nearest" });
-      }
+      if (focus) tabs[index].focus();
     }
 
     tabs.forEach(function (tab, i) {
       tab.addEventListener("click", function () { select(i, false); });
       tab.addEventListener("keydown", function (event) {
         var next = null;
-        if (event.key === "ArrowRight") next = (i + 1) % tabs.length;
-        else if (event.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
+        if (event.key === "ArrowDown" || event.key === "ArrowRight") next = (i + 1) % tabs.length;
+        else if (event.key === "ArrowUp" || event.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
         else if (event.key === "Home") next = 0;
         else if (event.key === "End") next = tabs.length - 1;
         if (next !== null) {
@@ -102,13 +100,35 @@
           select(next, true);
         }
       });
+      var bar = tab.querySelector(".module-tab__bar i");
+      if (bar) {
+        bar.addEventListener("animationend", function () {
+          if (tab.getAttribute("aria-selected") === "true") select((i + 1) % tabs.length, false);
+        });
+      }
     });
+
+    if (root) {
+      var hovering = false, focused = false, onScreen = true;
+      var sync = function () { root.classList.toggle("is-paused", hovering || focused || !onScreen); };
+      root.addEventListener("mouseenter", function () { hovering = true; sync(); });
+      root.addEventListener("mouseleave", function () { hovering = false; sync(); });
+      root.addEventListener("focusin", function () { focused = true; sync(); });
+      root.addEventListener("focusout", function (event) {
+        if (!root.contains(event.relatedTarget)) { focused = false; sync(); }
+      });
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (entries) {
+          onScreen = entries[0].isIntersecting;
+          sync();
+        }, { threshold: 0.25 }).observe(root);
+      }
+    }
 
     document.addEventListener("click", function (event) {
       var link = event.target.closest("a[data-tab]");
       if (!link) return;
-      var target = document.getElementById("tab-" + link.getAttribute("data-tab"));
-      var index = tabs.indexOf(target);
+      var index = tabs.indexOf(document.getElementById("tab-" + link.getAttribute("data-tab")));
       if (index >= 0) select(index, false);
     });
 
