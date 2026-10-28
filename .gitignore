@@ -1,0 +1,4 @@
+# Reference captures and local files stay out of the public repo
+screencapture-*.png
+*.png
+.DS_Store

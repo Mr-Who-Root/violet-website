@@ -4,29 +4,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Violet</title>
-<meta name="description" content="Violet puts offensive testing, AI-assisted log analysis, and real-time automated response in one visual workspace. SaaS or on-prem. Deploying soon.">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-agnvbblsjnw8TmXbDDw0j5THw95zdpu3CmsnlC3zm8o='; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="description" content="Violet puts offensive testing, AI-assisted log analysis, and real-time automated response in one workspace. SaaS or on-prem. Deploying soon.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta name="theme-color" content="#0E0F16">
+<meta name="theme-color" content="#F9F8F5">
 <meta property="og:title" content="Violet">
 <meta property="og:description" content="Red and blue team operations and incident response in one workspace. Deploying soon.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Hanken+Grotesk:wght@700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..800&family=Hanken+Grotesk:wght@700&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400..700&display=swap">
 <link rel="stylesheet" href="assets/motion/violet-motion.css">
 <link rel="stylesheet" href="assets/css/site.css">
-<script>(function(){try{var t=localStorage.getItem("violet-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
-<script src="assets/motion/violet-motion.js" defer></script>
 <script src="assets/js/site.js" defer></script>
+<script src="assets/js/art.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-header">
   <div class="wrap site-header__inner">
-    <a class="lockup lockup--header" href="#top" aria-label="Violet home">
+    <a class="lockup" href="#top" aria-label="Violet home">
       <svg class="vm-mark vm-boot vm-run" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
         <path class="vm-s-red" d="M48 44 L79 108" stroke-width="22" pathLength="1"/>
         <path class="vm-s-blue" d="M152 44 L121 108" stroke-width="22" pathLength="1"/>
@@ -37,18 +36,13 @@
     <nav class="site-nav" id="site-nav" aria-label="Main" data-open="false">
       <ul>
         <li><a href="#product">Product</a></li>
-        <li><a href="#red-team">Red team</a></li>
-        <li><a href="#blue-team">Blue team</a></li>
-        <li><a href="#connectors">Connectors</a></li>
-        <li><a href="#deployment">Deployment</a></li>
-        <li><a href="#security">Security</a></li>
+        <li><a href="#modules">Modules</a></li>
+        <li><a href="#why">Why Violet</a></li>
+        <li><a href="#launch">Launch plan</a></li>
       </ul>
     </nav>
-    <div class="site-header__actions">
-      <button class="theme-toggle" type="button" data-theme-toggle>Light theme</button>
-      <button class="menu-toggle" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false">Menu</button>
-      <a class="btn btn--primary" href="#launch">Launch plan</a>
-    </div>
+    <a class="pill pill--deep site-header__cta" href="#launch">Deploying soon</a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false">Menu</button>
   </div>
 </header>
 
@@ -57,585 +51,384 @@
   <section class="hero" id="top" aria-labelledby="hero-title">
     <div class="wrap">
       <div class="hero__copy">
-        <span class="status"><span class="dot dot--warning" aria-hidden="true"></span>Deploying soon</span>
-        <h1 id="hero-title">Run red and blue team operations from one workspace.</h1>
-        <p class="lead">Build scan flows by dragging nodes. Get AI log summaries with risk scores. Respond to incidents automatically, in seconds. Violet runs as SaaS or on your own hardware, so a smaller team can run competent security operations.</p>
-        <div class="hero__ctas">
-          <a class="btn btn--primary" href="#product">See how it works</a>
-          <a class="btn btn--secondary" href="#launch">Launch plan</a>
+        <a class="announce" href="#launch">
+          <span class="announce__tag">Soon</span>
+          <span class="announce__text">Violet is deploying soon</span>
+        </a>
+        <h1 id="hero-title"><span>Run red and blue team operations</span> <span>from one workspace.</span></h1>
+        <p class="lead">Violet lets a smaller team test its defenses, read its logs, and contain incidents in seconds, with every action scoped, approved, and audited.</p>
+        <div class="pill-row">
+          <a class="pill pill--solid" href="#modules">See how it works</a>
+          <a class="pill pill--outline" href="#launch">Launch plan</a>
         </div>
       </div>
-
-      <figure class="panel panel--blue hero__canvas ctx-blue" aria-labelledby="canvas-title">
-        <div class="panel__bar">
-          <span class="panel__title" id="canvas-title">Brute-force containment</span>
-          <span class="chip chip--blue">Blue team</span>
-          <span class="chip">Example</span>
-          <span class="run-state"><span class="vm-spinner" aria-hidden="true"></span>Running</span>
-        </div>
-        <div class="canvas__stage">
-          <ol class="flow" aria-label="Response flow, four steps">
-            <li class="flow__step">
-              <div class="node node--trigger" data-state="done">
-                <span class="node__type"><i class="shape shape--trigger"></i>Trigger</span>
-                <span class="node__title">Repeated failed logins</span>
-                <code class="node__param">count &gt;= 10 within 5m</code>
-              </div>
-              <svg class="edge edge--h" viewBox="0 0 44 12" aria-hidden="true"><path class="vm-flow__base" d="M0 6 H44"/><path class="vm-flow__pulse" d="M0 6 H44"/></svg>
-              <svg class="edge edge--v" viewBox="0 0 12 28" aria-hidden="true"><path class="vm-flow__base" d="M6 0 V28"/><path class="vm-flow__pulse" d="M6 0 V28"/></svg>
-            </li>
-            <li class="flow__step">
-              <div class="node node--condition" data-state="done">
-                <span class="node__type"><i class="shape shape--condition"></i>Condition</span>
-                <span class="node__title">Unknown source</span>
-                <code class="node__param">src_ip not in allowlist</code>
-              </div>
-              <svg class="edge edge--h" viewBox="0 0 44 12" aria-hidden="true"><path class="vm-flow__base" d="M0 6 H44"/><path class="vm-flow__pulse" d="M0 6 H44"/></svg>
-              <svg class="edge edge--v" viewBox="0 0 12 28" aria-hidden="true"><path class="vm-flow__base" d="M6 0 V28"/><path class="vm-flow__pulse" d="M6 0 V28"/></svg>
-            </li>
-            <li class="flow__step">
-              <div class="node node--action" data-state="done">
-                <span class="node__type"><i class="shape shape--action"></i>Action</span>
-                <span class="node__title">Block IP</span>
-                <code class="node__param">203.0.113.24 on edge-fw-1</code>
-              </div>
-              <svg class="edge edge--h" viewBox="0 0 44 12" aria-hidden="true"><path class="vm-flow__base" d="M0 6 H44"/><path class="vm-flow__pulse" d="M0 6 H44"/></svg>
-              <svg class="edge edge--v" viewBox="0 0 12 28" aria-hidden="true"><path class="vm-flow__base" d="M6 0 V28"/><path class="vm-flow__pulse" d="M6 0 V28"/></svg>
-            </li>
-            <li class="flow__step">
-              <div class="node node--api" data-state="active">
-                <span class="node__type"><i class="shape shape--api"></i>API call</span>
-                <span class="node__title">Notify the SOC</span>
-                <code class="node__param">channel soc-alerts</code>
-              </div>
-            </li>
-          </ol>
-        </div>
-        <div class="canvas__foot">
-          <table class="runlog">
-            <caption class="visually-hidden">Run log for this example flow</caption>
-            <tbody>
-              <tr><td>14:02:07</td><td>trigger</td><td>12 failed logins for svc-backup from 203.0.113.24</td></tr>
-              <tr><td>14:02:07</td><td>condition</td><td>203.0.113.24 is not on the allowlist</td></tr>
-              <tr><td>14:02:08</td><td>action</td><td>Blocked 203.0.113.24 on edge-fw-1</td></tr>
-              <tr><td>14:02:08</td><td>api call</td><td>Notifying soc-alerts</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </figure>
-
-      <p class="audience">Built for <strong>SOC analysts</strong>, <strong>SOC managers</strong>, <strong>red teamers</strong>, <strong>CISOs</strong>, and <strong>MSSP operators</strong>.</p>
-    </div>
-  </section>
-
-  <section class="band band--alt" aria-labelledby="problem-title">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="problem-title">Competent security work is gated behind expertise most teams can't hire.</h2>
-        <p class="lead">Three roles carry front-line security work. Each one hits a different wall.</p>
-      </div>
-      <div class="gaps">
-        <div class="gap">
-          <h3><span class="dot dot--red" aria-hidden="true"></span>Red teamers</h3>
-          <p>Penetration testing needs scarce experts. Without a modular way to chain tools into a reusable sequence, assessments happen rarely and unevenly.</p>
-        </div>
-        <div class="gap">
-          <h3><span class="dot dot--blue" aria-hidden="true"></span>Blue teamers</h3>
-          <p>Investigating an incident means reading large volumes of logs by hand. Separating real threats from noise takes more time than an active incident allows.</p>
-        </div>
-        <div class="gap">
-          <h3><span class="dot" aria-hidden="true"></span>L1 analysts</h3>
-          <p>They decide what to escalate, often without the training to understand the attack. Searching the web mid-incident slows the response and can make it worse.</p>
-        </div>
-      </div>
-      <p class="gap-close">Violet lowers that gate without lowering the quality of the work.</p>
-    </div>
-  </section>
-
-  <section class="band" id="product" aria-labelledby="product-title">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="product-title">One workspace for both sides of the house.</h2>
-        <p class="lead">Offensive testing, log analysis, automated response, and a shared knowledge base, wired together so findings on one side inform the other.</p>
-      </div>
-      <div class="modules">
-        <article class="module module--red">
-          <h3>Red team canvas</h3>
-          <p>Drag scan nodes onto a canvas, wire them into an assessment, and validate it before anything runs. An AI report covers attack surface, vulnerabilities, and mitigations, with a risk score per finding.</p>
-          <ul class="module__facts">
-            <li>Network mapping, vulnerability scanning, safe-mode validation</li>
-            <li>Save as a template and re-run on a schedule</li>
-          </ul>
-        </article>
-        <article class="module module--blue">
-          <h3>Blue team console</h3>
-          <p>Ingest logs from your SIEM, EDR, and IDS/IPS, or upload JSON, CSV, or XML. AI summarizes what matters and scores every event, so analysts work the top of the list first.</p>
-          <ul class="module__facts">
-            <li>Continuous ingestion from connected sources</li>
-            <li>Per-event risk scores with recommended mitigations</li>
-          </ul>
-        </article>
-        <article class="module module--violet">
-          <h3>Automated response</h3>
-          <p>Build response flows from triggers, conditions, actions, and API calls. Common incidents are contained in seconds. High-impact actions wait for an approver.</p>
-          <ul class="module__facts">
-            <li>Flows tiered by severity, reversible where feasible</li>
-            <li>Every automated action written to the audit log</li>
-          </ul>
-        </article>
-        <article class="module">
-          <h3>Knowledge base</h3>
-          <p>Ask how to mitigate a privilege-escalation attempt and get a grounded answer mapped to common frameworks, in context, instead of searching the web mid-incident.</p>
-          <ul class="module__facts">
-            <li>Red-team tactics, blue-team defenses, threat intelligence</li>
-            <li>Updates by signed package on air-gapped installs</li>
-          </ul>
-        </article>
+      <ul class="stack-strip" aria-label="Connector categories">
+        <li class="stack-strip__label"><span class="label">Connectors for the stack you already run</span></li>
+        <li>SIEM</li><li>EDR</li><li>IDS/IPS</li><li>Firewalls</li><li>Cloud</li><li>Identity</li><li>Ticketing</li><li>Slack</li><li>Ansible</li>
+      </ul>
+      <div class="art art--hero">
+        <canvas data-art="word" data-text="red+blue" data-narrow="red+|blue" data-zones="red:3,violet:1,blue:4" data-seed="7" role="img" aria-label="red plus blue, drawn in flowers and rosettes"></canvas>
+        <span class="ribbon ribbon--red" aria-hidden="true">Red team</span>
+        <span class="ribbon ribbon--violet" aria-hidden="true">One workspace</span>
+        <span class="ribbon ribbon--blue" aria-hidden="true">Blue team</span>
       </div>
     </div>
   </section>
 
-  <section class="band band--alt" id="roles" aria-labelledby="roles-title">
+  <section class="problem" aria-labelledby="problem-title">
+    <canvas class="problem__art problem__art--left" data-art="screens" data-side="left" aria-hidden="true"></canvas>
+    <canvas class="problem__art problem__art--right" data-art="screens" data-side="right" aria-hidden="true"></canvas>
     <div class="wrap">
-      <div class="section-head">
-        <h2 id="roles-title">Each role gets the view it needs.</h2>
-        <p class="lead">The same workspace, shaped around the job each person does.</p>
+      <div class="problem__body">
+        <span class="label">The reality for security teams</span>
+        <h2 id="problem-title">Good security work needs experts. <b>Most teams can't hire enough of them.</b></h2>
+        <svg class="tangle" viewBox="0 0 220 160" aria-hidden="true" focusable="false">
+          <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M24 118 C 52 30, 112 138, 150 62 S 196 32, 196 96" stroke="#2E2370" stroke-width="16"/>
+            <path d="M24 118 C 52 30, 112 138, 150 62 S 196 32, 196 96" stroke="#D6455C" stroke-width="10"/>
+            <path d="M30 42 C 84 132, 120 22, 186 122" stroke="#2E2370" stroke-width="16"/>
+            <path d="M30 42 C 84 132, 120 22, 186 122" stroke="#3E8BFF" stroke-width="10"/>
+            <path d="M70 142 C 40 80, 132 50, 110 116 S 168 144, 198 44" stroke="#2E2370" stroke-width="16"/>
+            <path d="M70 142 C 40 80, 132 50, 110 116 S 168 144, 198 44" stroke="#6E56E6" stroke-width="10"/>
+          </g>
+          <g stroke="#2E2370" stroke-width="3" stroke-linejoin="round">
+            <polygon points="-2,-11 16,0 -2,11" fill="#D6455C" transform="translate(196 98) rotate(90)"/>
+            <polygon points="-2,-11 16,0 -2,11" fill="#3E8BFF" transform="translate(186 124) rotate(56)"/>
+            <polygon points="-2,-11 16,0 -2,11" fill="#6E56E6" transform="translate(198 42) rotate(-73)"/>
+          </g>
+        </svg>
+        <p>Red teamers chain tools by hand, so assessments happen rarely. Blue teamers read logs line by line while an incident unfolds. L1 analysts decide what to escalate without the depth to understand the attack.</p>
+        <p>None of them is doing it wrong. The expertise is gated. Violet lowers that gate without lowering the quality of the work.</p>
       </div>
+    </div>
+  </section>
 
-      <div class="tabs">
-        <div class="tablist vm-tabbar" role="tablist" aria-label="Roles" data-tabs>
-          <button class="tab" type="button" role="tab" id="tab-analyst" aria-controls="panel-analyst" aria-selected="true">SOC analyst</button>
-          <button class="tab" type="button" role="tab" id="tab-manager" aria-controls="panel-manager" aria-selected="false" tabindex="-1">SOC manager</button>
-          <button class="tab" type="button" role="tab" id="tab-red" aria-controls="panel-red" aria-selected="false" tabindex="-1">Red teamer</button>
-          <button class="tab" type="button" role="tab" id="tab-ciso" aria-controls="panel-ciso" aria-selected="false" tabindex="-1">CISO</button>
-          <button class="tab" type="button" role="tab" id="tab-mssp" aria-controls="panel-mssp" aria-selected="false" tabindex="-1">MSSP operator</button>
-          <span class="vm-tab-indicator" aria-hidden="true"></span>
-        </div>
-
-        <div class="tabpanel" role="tabpanel" id="panel-analyst" aria-labelledby="tab-analyst">
-          <div class="role">
-            <div class="role__copy">
-              <h3>Triage by risk, not by arrival order.</h3>
-              <p>Read AI summaries ranked by risk score instead of raw logs. Each event carries its severity, its source, and the recommended next step. Run the matching response flow in one click.</p>
-              <p class="role__outcome"><strong>Success looks like:</strong> the top of the list is the real incident, and the common ones are already handled.</p>
+  <section id="product" aria-labelledby="product-title">
+    <div class="wrap">
+      <div class="block">
+        <span class="label">One workspace</span>
+        <div class="block__grid">
+          <h2 class="block__statement" id="product-title"><span>Test your defenses.</span> <span>Read your logs.</span> <span>Respond in seconds.</span></h2>
+          <div class="features">
+            <div class="feature">
+              <h3>Red team canvas</h3>
+              <p>Drag scan nodes onto a canvas, validate the flow, and run it against targets you have verified. AI writes the report and scores every finding.</p>
             </div>
-            <figure class="panel panel--blue">
-              <div class="panel__bar">
-                <span class="panel__title">Prioritized events</span>
-                <span class="chip">Example data</span>
+            <div class="feature">
+              <h3>Blue team console</h3>
+              <p>Ingest logs from your SIEM, EDR, and IDS/IPS. AI summarizes what matters and scores every event, so analysts start at the top of the list.</p>
+            </div>
+            <div class="feature">
+              <h3>Automated response</h3>
+              <p>Build flows from triggers, conditions, actions, and API calls. Common incidents are contained in seconds, and risky actions wait for approval.</p>
+            </div>
+            <div class="feature">
+              <h3>Knowledge base</h3>
+              <p>Ask how to stop a privilege-escalation attempt and get a grounded answer in context, instead of searching the web mid-incident.</p>
+            </div>
+          </div>
+          <div class="block__foot">
+            <p><b>Violet</b> runs as SaaS or as an appliance on your own hardware, including fully air-gapped sites.</p>
+            <a class="pill pill--white" href="#launch">See the launch plan</a>
+          </div>
+        </div>
+        <canvas class="block__field" data-art="field" aria-hidden="true"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="modules" aria-labelledby="modules-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">One workspace, every role</span>
+        <h2 class="section-title" id="modules-title">Keep red and blue work moving, in one place.</h2>
+        <p class="lead">Every module shares the same canvas, connectors, and audit trail, so a finding on one side shapes the response on the other.</p>
+      </div>
+
+      <div class="teams">
+        <div class="teams__tabs" role="tablist" aria-label="Modules" data-tabs>
+          <button class="team-tab tone-red" type="button" role="tab" id="tab-red" aria-controls="panel-red" aria-selected="true">
+            <span class="team-tab__name">Red team</span>
+            <span class="team-tab__desc">Assessment flows behind an ownership gate, with an AI report for every run.</span>
+          </button>
+          <button class="team-tab tone-blue" type="button" role="tab" id="tab-blue" aria-controls="panel-blue" aria-selected="false" tabindex="-1">
+            <span class="team-tab__name">Blue team</span>
+            <span class="team-tab__desc">Log ingestion and AI summaries, with a risk score on every event.</span>
+          </button>
+          <button class="team-tab tone-violet" type="button" role="tab" id="tab-response" aria-controls="panel-response" aria-selected="false" tabindex="-1">
+            <span class="team-tab__name">Response</span>
+            <span class="team-tab__desc">Trigger, condition, action, and API flows that run in seconds.</span>
+          </button>
+          <button class="team-tab tone-teal" type="button" role="tab" id="tab-kb" aria-controls="panel-kb" aria-selected="false" tabindex="-1">
+            <span class="team-tab__name">Knowledge</span>
+            <span class="team-tab__desc">Grounded answers on tactics, defenses, and threat intel, in context.</span>
+          </button>
+          <button class="team-tab tone-orange" type="button" role="tab" id="tab-mssp" aria-controls="panel-mssp" aria-selected="false" tabindex="-1">
+            <span class="team-tab__name">MSSP</span>
+            <span class="team-tab__desc">Every client from one console, with each client's data kept apart.</span>
+          </button>
+        </div>
+
+        <div class="team-panel tone-red" role="tabpanel" id="panel-red" aria-labelledby="tab-red">
+          <span class="team-panel__label">Product preview</span>
+          <figure class="shot">
+            <div class="app">
+              <aside class="app__side" aria-hidden="true">
+                <span class="lockup lockup--light"><svg class="vm-mark" viewBox="0 0 200 200"><path class="vm-s-red" d="M48 44 L79 108" stroke-width="22"/><path class="vm-s-blue" d="M152 44 L121 108" stroke-width="22"/><path class="vm-s-violet" d="M79 108 L100 150 L121 108" stroke-width="22"/></svg><span>Violet</span></span>
+                <ul class="app__nav"><li>Overview</li><li class="is-active">Red team</li><li>Blue team</li><li>Response flows</li><li>Knowledge base</li><li>Connectors</li><li>Settings</li></ul>
+              </aside>
+              <div class="app__main">
+                <div class="app__head">
+                  <div class="app__head-text"><span class="app__title">External perimeter</span><span class="app__sub">Assessment flow</span></div>
+                  <span class="chip"><span class="dot dot--good"></span>Scope verified</span>
+                  <span class="chip">Weekly, Mon 02:00 UTC</span>
+                </div>
+                <dl class="kv">
+                  <dt>Target</dt><dd>198.51.100.0/24</dd>
+                  <dt>Ownership</dt><dd>DNS TXT record, re-checked before each run</dd>
+                  <dt>Mode</dt><dd>Safe mode, destructive actions off</dd>
+                </dl>
+                <div class="canvas-ui ctx-red">
+                  <ol class="flow">
+                    <li class="flow__step"><div class="node node--action" data-state="done"><span class="node__type"><i class="shape shape--action"></i>Scan</span><span class="node__title">Network map</span><code class="node__param">ports 1-1024</code></div><svg class="edge" viewBox="0 0 34 12" aria-hidden="true"><path class="vm-flow__base" d="M0 6 H34"/></svg></li>
+                    <li class="flow__step"><div class="node node--action" data-state="done"><span class="node__type"><i class="shape shape--action"></i>Scan</span><span class="node__title">Vulnerability scan</span><code class="node__param">profile standard</code></div><svg class="edge" viewBox="0 0 34 12" aria-hidden="true"><path class="vm-flow__base" d="M0 6 H34"/><path class="vm-flow__pulse" d="M0 6 H34"/></svg></li>
+                    <li class="flow__step"><div class="node node--action" data-state="active"><span class="node__type"><i class="shape shape--action"></i>Check</span><span class="node__title">Safe-mode validation</span><code class="node__param">checks only</code></div><svg class="edge" viewBox="0 0 34 12" aria-hidden="true"><path class="vm-flow__base" d="M0 6 H34"/></svg></li>
+                    <li class="flow__step"><div class="node node--api"><span class="node__type"><i class="shape shape--api"></i>Report</span><span class="node__title">AI report</span><code class="node__param">risk per finding</code></div></li>
+                  </ol>
+                </div>
+                <p class="note">Last run: 2 high, 6 medium, and 11 low findings.</p>
               </div>
-              <div class="table-scroll">
-                <table class="data">
-                  <caption class="visually-hidden">Example events ranked by risk score</caption>
-                  <thead><tr><th class="num" scope="col">Score</th><th scope="col">Severity</th><th scope="col">Event</th><th scope="col">Source</th></tr></thead>
+            </div>
+          </figure>
+        </div>
+
+        <div class="team-panel tone-blue" role="tabpanel" id="panel-blue" aria-labelledby="tab-blue" hidden>
+          <span class="team-panel__label">Product preview</span>
+          <figure class="shot">
+            <div class="app">
+              <aside class="app__side" aria-hidden="true">
+                <span class="lockup lockup--light"><svg class="vm-mark" viewBox="0 0 200 200"><path class="vm-s-red" d="M48 44 L79 108" stroke-width="22"/><path class="vm-s-blue" d="M152 44 L121 108" stroke-width="22"/><path class="vm-s-violet" d="M79 108 L100 150 L121 108" stroke-width="22"/></svg><span>Violet</span></span>
+                <ul class="app__nav"><li>Overview</li><li>Red team</li><li class="is-active">Blue team</li><li>Response flows</li><li>Knowledge base</li><li>Connectors</li><li>Settings</li></ul>
+              </aside>
+              <div class="app__main">
+                <div class="app__head">
+                  <div class="app__head-text"><span class="app__title">Triage</span><span class="app__sub">Events ranked by risk score</span></div>
+                  <span class="chip"><span class="dot dot--good"></span>Ingesting from 3 sources</span>
+                </div>
+                <div class="split-ui">
+                  <div class="table-scroll">
+                    <table class="data">
+                      <thead><tr><th class="num" scope="col">Score</th><th scope="col">Severity</th><th scope="col">Event</th><th scope="col">Source</th></tr></thead>
+                      <tbody>
+                        <tr class="is-selected"><td class="num">92</td><td><span class="sev sev--critical"><i></i>Critical</span></td><td class="text">12 failed logins, then a success</td><td>vpn-gw-1</td></tr>
+                        <tr><td class="num">78</td><td><span class="sev sev--high"><i></i>High</span></td><td class="text">Unauthorized query on customer table</td><td>db-prod-2</td></tr>
+                        <tr><td class="num">54</td><td><span class="sev sev--medium"><i></i>Medium</span></td><td class="text">Admin account created outside change window</td><td>idp</td></tr>
+                        <tr><td class="num">27</td><td><span class="sev sev--low"><i></i>Low</span></td><td class="text">Port 8443 newly reachable</td><td>web-03</td></tr>
+                        <tr><td class="num">5</td><td><span class="sev sev--info"><i></i>Info</span></td><td class="text">EDR agent heartbeat restored</td><td>ws-114</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="pane">
+                    <div class="pane__head"><span class="pane__title">AI summary</span><span class="score">92</span><span class="sev sev--critical"><i></i>Critical</span></div>
+                    <p>Twelve failed logins for svc-backup from 203.0.113.24 were followed by a successful login at 14:01. This matches a brute-force compromise of a service account.</p>
+                    <ul class="checks"><li>Block 203.0.113.24 at the edge firewall</li><li>Reset the svc-backup credentials</li><li>Review sessions opened since 14:01</li></ul>
+                    <p class="note">Advisory. Actions run only through your response flows.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+
+        <div class="team-panel tone-violet" role="tabpanel" id="panel-response" aria-labelledby="tab-response" hidden>
+          <span class="team-panel__label">Product preview</span>
+          <figure class="shot">
+            <div class="app">
+              <aside class="app__side" aria-hidden="true">
+                <span class="lockup lockup--light"><svg class="vm-mark" viewBox="0 0 200 200"><path class="vm-s-red" d="M48 44 L79 108" stroke-width="22"/><path class="vm-s-blue" d="M152 44 L121 108" stroke-width="22"/><path class="vm-s-violet" d="M79 108 L100 150 L121 108" stroke-width="22"/></svg><span>Violet</span></span>
+                <ul class="app__nav"><li>Overview</li><li>Red team</li><li>Blue team</li><li class="is-active">Response flows</li><li>Knowledge base</li><li>Connectors</li><li>Settings</li></ul>
+              </aside>
+              <div class="app__main">
+                <div class="app__head">
+                  <div class="app__head-text"><span class="app__title">Brute-force containment</span><span class="app__sub">Response flow</span></div>
+                  <span class="chip"><span class="vm-spinner" aria-hidden="true"></span>Running</span>
+                </div>
+                <div class="canvas-ui">
+                  <ol class="flow">
+                    <li class="flow__step"><div class="node node--trigger" data-state="done"><span class="node__type"><i class="shape shape--trigger"></i>Trigger</span><span class="node__title">Repeated failed logins</span><code class="node__param">count &gt;= 10 in 5m</code></div><svg class="edge" viewBox="0 0 34 12" aria-hidden="true"><path class="vm-flow__base" d="M0 6 H34"/><path class="vm-flow__pulse" d="M0 6 H34"/></svg></li>
+                    <li class="flow__step"><div class="node" data-state="done"><span class="node__type"><i class="shape shape--condition"></i>Condition</span><span class="node__title">Unknown source</span><code class="node__param">src_ip not in allowlist</code></div><svg class="edge" viewBox="0 0 34 12" aria-hidden="true"><path class="vm-flow__base" d="M0 6 H34"/><path class="vm-flow__pulse" d="M0 6 H34"/></svg></li>
+                    <li class="flow__step"><div class="node node--action" data-state="done"><span class="node__type"><i class="shape shape--action"></i>Action</span><span class="node__title">Block IP</span><code class="node__param">203.0.113.24 on edge-fw-1</code></div><svg class="edge" viewBox="0 0 34 12" aria-hidden="true"><path class="vm-flow__base" d="M0 6 H34"/><path class="vm-flow__pulse" d="M0 6 H34"/></svg></li>
+                    <li class="flow__step"><div class="node node--api" data-state="active"><span class="node__type"><i class="shape shape--api"></i>API call</span><span class="node__title">Notify the SOC</span><code class="node__param">channel soc-alerts</code></div></li>
+                  </ol>
+                </div>
+                <table class="runlog">
                   <tbody>
-                    <tr class="is-selected"><td class="num">92</td><td><span class="sev sev--critical"><i></i>Critical</span></td><td class="text">12 failed logins, then a success</td><td>vpn-gw-1</td></tr>
-                    <tr><td class="num">78</td><td><span class="sev sev--high"><i></i>High</span></td><td class="text">Unauthorized query on customer table</td><td>db-prod-2</td></tr>
-                    <tr><td class="num">54</td><td><span class="sev sev--medium"><i></i>Medium</span></td><td class="text">Admin account created outside change window</td><td>idp</td></tr>
-                    <tr><td class="num">27</td><td><span class="sev sev--low"><i></i>Low</span></td><td class="text">Port 8443 newly reachable</td><td>web-03</td></tr>
-                    <tr><td class="num">5</td><td><span class="sev sev--info"><i></i>Info</span></td><td class="text">EDR agent heartbeat restored</td><td>ws-114</td></tr>
+                    <tr><td>14:02:07</td><td>trigger</td><td>12 failed logins for svc-backup from 203.0.113.24</td></tr>
+                    <tr><td>14:02:07</td><td>condition</td><td>203.0.113.24 is not on the allowlist</td></tr>
+                    <tr><td>14:02:08</td><td>action</td><td>Blocked 203.0.113.24 on edge-fw-1</td></tr>
+                    <tr><td>14:02:08</td><td>api call</td><td>Notifying soc-alerts</td></tr>
                   </tbody>
                 </table>
               </div>
-            </figure>
-          </div>
+            </div>
+          </figure>
         </div>
 
-        <div class="tabpanel" role="tabpanel" id="panel-manager" aria-labelledby="tab-manager" hidden>
-          <div class="role">
-            <div class="role__copy">
-              <h3>Playbooks juniors can run, with approval where it counts.</h3>
-              <p>Design response flows once and let the team run them. Isolating a host, revoking access, or blocking a range can require approval, and the approver can be required to be a different person from the operator.</p>
-              <p class="role__outcome"><strong>Success looks like:</strong> repeatable, auditable response, whoever is on shift.</p>
-            </div>
-            <figure class="panel panel--blue">
-              <div class="panel__bar">
-                <span class="panel__title">Approval queue</span>
-                <span class="chip">Example data</span>
-              </div>
-              <div class="panel__body">
-                <div class="approval">
-                  <span class="approval__title">Isolate host db-prod-2</span>
-                  <div class="approval__meta">
-                    <span class="chip"><span class="dot dot--warning" aria-hidden="true"></span>Waiting for approval</span>
-                    <span class="chip">flow unauthorized-db-access</span>
+        <div class="team-panel tone-teal" role="tabpanel" id="panel-kb" aria-labelledby="tab-kb" hidden>
+          <span class="team-panel__label">Product preview</span>
+          <figure class="shot">
+            <div class="app">
+              <aside class="app__side" aria-hidden="true">
+                <span class="lockup lockup--light"><svg class="vm-mark" viewBox="0 0 200 200"><path class="vm-s-red" d="M48 44 L79 108" stroke-width="22"/><path class="vm-s-blue" d="M152 44 L121 108" stroke-width="22"/><path class="vm-s-violet" d="M79 108 L100 150 L121 108" stroke-width="22"/></svg><span>Violet</span></span>
+                <ul class="app__nav"><li>Overview</li><li>Red team</li><li>Blue team</li><li>Response flows</li><li class="is-active">Knowledge base</li><li>Connectors</li><li>Settings</li></ul>
+              </aside>
+              <div class="app__main">
+                <div class="app__head">
+                  <div class="app__head-text"><span class="app__title">Knowledge base</span><span class="app__sub">Grounded answers in context</span></div>
+                </div>
+                <div class="qa">
+                  <p class="q">How do I contain a privilege-escalation attempt on a Linux host?</p>
+                  <div class="a">
+                    <p>Isolate the host first, then preserve evidence before you remediate.</p>
+                    <ol>
+                      <li>Isolate the host with your EDR connector.</li>
+                      <li>Capture running processes and recent sudo activity.</li>
+                      <li>Revoke sessions for the affected accounts.</li>
+                      <li>Patch the exploited component, then restore access.</li>
+                    </ol>
+                    <div class="sources"><span class="chip">MITRE ATT&amp;CK T1068</span><span class="chip">Your runbook: host isolation</span></div>
                   </div>
-                  <p class="approval__note">High-impact action. The approver must be a different person from the operator.</p>
+                  <p class="note">Answers are grounded in your knowledge base and are advisory.</p>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+
+        <div class="team-panel tone-orange" role="tabpanel" id="panel-mssp" aria-labelledby="tab-mssp" hidden>
+          <span class="team-panel__label">Product preview</span>
+          <figure class="shot">
+            <div class="app">
+              <aside class="app__side" aria-hidden="true">
+                <span class="lockup lockup--light"><svg class="vm-mark" viewBox="0 0 200 200"><path class="vm-s-red" d="M48 44 L79 108" stroke-width="22"/><path class="vm-s-blue" d="M152 44 L121 108" stroke-width="22"/><path class="vm-s-violet" d="M79 108 L100 150 L121 108" stroke-width="22"/></svg><span>Violet</span></span>
+                <ul class="app__nav"><li class="is-active">Clients</li><li>Red team</li><li>Blue team</li><li>Response flows</li><li>Knowledge base</li><li>Connectors</li><li>Settings</li></ul>
+              </aside>
+              <div class="app__main">
+                <div class="app__head">
+                  <div class="app__head-text"><span class="app__title">Master console</span><span class="app__sub">All client tenants</span></div>
+                  <span class="chip">7 of 10 client slots</span>
+                </div>
+                <div class="kpis">
+                  <div class="kpi"><span>Open incidents</span><strong>11</strong></div>
+                  <div class="kpi"><span>Healthy clients</span><strong>6 of 7</strong></div>
+                  <div class="kpi"><span>Connectors degraded</span><strong>1</strong></div>
                 </div>
                 <div class="table-scroll">
                   <table class="data">
-                    <caption class="visually-hidden">Example audit entries</caption>
-                    <thead><tr><th scope="col">Time</th><th scope="col">Actor</th><th scope="col">Action</th></tr></thead>
+                    <thead><tr><th scope="col">Client tenant</th><th class="num" scope="col">Open incidents</th><th scope="col">Health</th><th class="num" scope="col">Logs per day</th><th scope="col"></th></tr></thead>
                     <tbody>
-                      <tr><td>14:02:11</td><td>flow</td><td class="text">Unauthorized access detected on db-prod-2</td></tr>
-                      <tr><td>14:02:11</td><td>flow</td><td class="text">Requested isolate-host on db-prod-2</td></tr>
-                      <tr><td>14:02:12</td><td>system</td><td class="text">Paged the on-call SOC manager</td></tr>
+                      <tr><td class="text">Client A</td><td class="num">3</td><td><span class="chip"><span class="dot dot--good"></span>Healthy</span></td><td class="num">41 GB</td><td class="open">Open</td></tr>
+                      <tr><td class="text">Client B</td><td class="num">0</td><td><span class="chip"><span class="dot dot--good"></span>Healthy</span></td><td class="num">12 GB</td><td class="open">Open</td></tr>
+                      <tr><td class="text">Client C</td><td class="num">7</td><td><span class="chip"><span class="dot dot--warning"></span>EDR connector degraded</span></td><td class="num">26 GB</td><td class="open">Open</td></tr>
+                      <tr><td class="text">Client D</td><td class="num">1</td><td><span class="chip"><span class="dot dot--good"></span>Healthy</span></td><td class="num">8 GB</td><td class="open">Open</td></tr>
                     </tbody>
                   </table>
                 </div>
               </div>
-            </figure>
-          </div>
-        </div>
-
-        <div class="tabpanel" role="tabpanel" id="panel-red" aria-labelledby="tab-red" hidden>
-          <div class="role">
-            <div class="role__copy">
-              <h3>Repeatable assessments, without rebuilding each time.</h3>
-              <p>Save a validated assessment as a template and re-run it on a schedule. Every run checks scope first, and the AI report arrives minutes after the last node finishes.</p>
-              <p class="role__outcome"><strong>Success looks like:</strong> a junior runs a senior's rigorous process, every time.</p>
             </div>
-            <figure class="panel panel--red ctx-red">
-              <div class="panel__bar">
-                <span class="panel__title">External perimeter assessment</span>
-                <span class="chip chip--red">Red team</span>
-                <span class="chip">Example data</span>
-              </div>
-              <div class="panel__body">
-                <dl class="kv">
-                  <dt>Scope</dt><dd>198.51.100.0/24</dd>
-                  <dt>Ownership</dt><dd>Verified by DNS TXT record</dd>
-                  <dt>Window</dt><dd>Mondays 02:00 to 04:00 UTC</dd>
-                  <dt>Schedule</dt><dd>Weekly</dd>
-                </dl>
-                <ol class="chain" aria-label="Assessment steps">
-                  <li><i class="shape shape--action"></i>Network map</li>
-                  <li><i class="shape shape--action"></i>Vulnerability scan</li>
-                  <li><i class="shape shape--action"></i>Safe-mode validation</li>
-                  <li><i class="shape shape--api"></i>AI report</li>
-                </ol>
-              </div>
-              <p class="panel__foot">Last report: 2 high, 6 medium, and 11 low findings.</p>
-            </figure>
-          </div>
-        </div>
-
-        <div class="tabpanel" role="tabpanel" id="panel-ciso" aria-labelledby="tab-ciso" hidden>
-          <div class="role">
-            <div class="role__copy">
-              <h3>See where risk sits and how fast it falls.</h3>
-              <p>Dashboards show risk by asset and category, threat breakdowns, and failed-login trends, scoped to the tenant and the viewer's role. Violet measures response time from day one, so the drop is visible against your own baseline.</p>
-              <p class="role__outcome"><strong>Success looks like:</strong> lower time to respond and wider coverage, without more hires.</p>
-            </div>
-            <figure class="panel">
-              <div class="panel__bar">
-                <span class="panel__title">Risk overview</span>
-                <span class="chip">Example data</span>
-              </div>
-              <div class="panel__body">
-                <div class="risk">
-                  <div class="vm-count">
-                    <span class="vm-count__num" data-vm-count="73" data-vm-fill="#ciso-risk-fill">73</span>
-                    <div class="vm-count__bar"><div class="vm-count__fill" id="ciso-risk-fill"></div></div>
-                  </div>
-                  <p class="risk__label">Tenant risk score out of 100, rated <span class="sev sev--high"><i></i>High</span></p>
-                </div>
-                <div class="table-scroll">
-                  <table class="heatmap">
-                    <caption class="visually-hidden">Example vulnerability risk by asset group and category, 0 to 100</caption>
-                    <thead>
-                      <tr><th scope="col"><span class="visually-hidden">Asset group</span></th><th scope="col">Exposure</th><th scope="col">Patching</th><th scope="col">Auth</th><th scope="col">Config</th><th scope="col">Detection</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr><th scope="row">Perimeter</th><td class="h5">82</td><td class="h4">64</td><td class="h3">41</td><td class="h3">55</td><td class="h2">23</td></tr>
-                      <tr><th scope="row">Web apps</th><td class="h4">71</td><td class="h5">88</td><td class="h3">52</td><td class="h3">47</td><td class="h2">35</td></tr>
-                      <tr><th scope="row">Identity</th><td class="h2">38</td><td class="h2">22</td><td class="h4">76</td><td class="h3">44</td><td class="h4">61</td></tr>
-                      <tr><th scope="row">Endpoints</th><td class="h2">29</td><td class="h3">57</td><td class="h2">33</td><td class="h1">18</td><td class="h3">49</td></tr>
-                      <tr><th scope="row">Cloud</th><td class="h3">45</td><td class="h2">31</td><td class="h2">27</td><td class="h4">69</td><td class="h1">12</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div class="heat-legend" aria-hidden="true">Low <span class="h1"></span><span class="h2"></span><span class="h3"></span><span class="h4"></span><span class="h5"></span> High</div>
-              </div>
-            </figure>
-          </div>
-        </div>
-
-        <div class="tabpanel" role="tabpanel" id="panel-mssp" aria-labelledby="tab-mssp" hidden>
-          <div class="role">
-            <div class="role__copy">
-              <h3>Every client from one console, with nothing mixed.</h3>
-              <p>One login shows open incidents, health, and usage for each client. Switch into any client in one click, with the path from your master tenant always visible. Each client's logs, flows, and findings stay isolated from every other client.</p>
-              <p class="role__outcome"><strong>Success looks like:</strong> more clients per analyst, with no cross-client exposure.</p>
-            </div>
-            <figure class="panel">
-              <div class="panel__bar">
-                <span class="panel__title">Master console</span>
-                <span class="chip">Example data</span>
-              </div>
-              <div class="table-scroll">
-                <table class="data">
-                  <caption class="visually-hidden">Example client tenants</caption>
-                  <thead><tr><th scope="col">Client tenant</th><th class="num" scope="col">Open incidents</th><th scope="col">Health</th><th class="num" scope="col">Logs per day</th></tr></thead>
-                  <tbody>
-                    <tr><td class="text">Client A</td><td class="num">3</td><td><span class="chip"><span class="dot dot--good" aria-hidden="true"></span>Healthy</span></td><td class="num">41 GB</td></tr>
-                    <tr><td class="text">Client B</td><td class="num">0</td><td><span class="chip"><span class="dot dot--good" aria-hidden="true"></span>Healthy</span></td><td class="num">12 GB</td></tr>
-                    <tr><td class="text">Client C</td><td class="num">7</td><td><span class="chip"><span class="dot dot--warning" aria-hidden="true"></span>EDR connector degraded</span></td><td class="num">26 GB</td></tr>
-                    <tr><td class="text">Client D</td><td class="num">1</td><td><span class="chip"><span class="dot dot--good" aria-hidden="true"></span>Healthy</span></td><td class="num">8 GB</td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <p class="panel__foot">Client slots: 7 of 10 licensed. Showing 4 of 7 clients.</p>
-            </figure>
-          </div>
+          </figure>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="band" id="red-team" aria-labelledby="red-title">
+  <section class="section" id="why" aria-labelledby="why-title">
     <div class="wrap">
-      <div class="section-head section-head--red">
-        <span class="chip chip--red">Red team</span>
-        <h2 id="red-title">Every assessment starts with proof of ownership.</h2>
-        <p class="lead">Violet runs a scan only against targets your tenant has verified it owns. The platform enforces this rule in SaaS and on-prem, so a scan outside scope is refused, not just discouraged.</p>
-      </div>
-      <div class="split">
-        <ol class="steps">
-          <li><h3>Verify ownership</h3><p>Prove each target with a DNS TXT record, a verification file, a verified cloud account, or a signed authorization from a tenant admin for internal ranges.</p></li>
-          <li><h3>Set the rules of engagement</h3><p>Declare the allowed ranges, node types, time window, and an intensity ceiling. Adding a target needs admin approval.</p></li>
-          <li><h3>Build and validate</h3><p>Violet checks the flow before it runs and names the problem: an authentication failure, an incompatible configuration, a duplicate connection, or an unsupported node type.</p></li>
-          <li><h3>Run sandboxed</h3><p>Each node runs isolated and resource-limited. Validation checks default to safe mode, and destructive actions stay off unless the engagement explicitly allows them.</p></li>
-          <li><h3>Read the report</h3><p>The AI report summarizes the attack surface, the vulnerabilities found, and the mitigations to apply, with a risk score per finding.</p></li>
-        </ol>
-        <figure class="panel panel--red ctx-red">
-          <div class="panel__bar">
-            <span class="panel__title">Scope gate</span>
-            <span class="chip">Example</span>
-            <span class="run-state"><span class="dot dot--good" aria-hidden="true"></span>In scope</span>
-          </div>
-          <div class="vm-scan scan-field" aria-hidden="true"><span class="vm-scan__beam"></span></div>
-          <div class="panel__body">
-            <dl class="kv">
-              <dt>Target</dt><dd>198.51.100.0/24</dd>
-              <dt>Proof</dt><dd>DNS TXT record, re-checked before each run</dd>
-              <dt>Allowed</dt><dd>Network map, vulnerability scan, safe mode only</dd>
-              <dt>Window</dt><dd>Mondays 02:00 to 04:00 UTC</dd>
-              <dt>Ceiling</dt><dd>200 requests per second</dd>
-            </dl>
-            <p class="refusal"><strong>Scan blocked.</strong> 203.0.113.0/24 isn't verified for this tenant. Verify ownership to continue.</p>
-          </div>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="band band--alt" id="blue-team" aria-labelledby="blue-title">
-    <div class="wrap">
-      <div class="section-head section-head--blue">
-        <span class="chip chip--blue">Blue team</span>
-        <h2 id="blue-title">From raw logs to a contained incident in seconds.</h2>
-        <p class="lead">Violet reads the logs, ranks what matters, and runs your response flow the moment a matching incident appears. Common incidents are handled before anyone opens a ticket.</p>
-      </div>
-      <div class="split">
-        <ol class="steps">
-          <li><h3>Ingest</h3><p>Connect a SIEM, IDS/IPS, EDR, cloud platform, or IoT source for continuous ingestion, or upload JSON, CSV, or XML. Ingestion applies back-pressure under load instead of dropping events.</p></li>
-          <li><h3>Summarize and score</h3><p>AI turns large log volumes into a readable report: highlighted anomalies, identified risks, and recommended mitigations, with a risk score for every event.</p></li>
-          <li><h3>Respond automatically</h3><p>A matching incident starts its response flow in seconds. Connected firewalls, EDR, and identity systems carry out the actions.</p></li>
-          <li><h3>Keep a human in the loop</h3><p>High-impact actions wait for approval. Every automated action is logged and reversible where feasible, and a failed action raises an alert instead of passing silently.</p></li>
-        </ol>
-        <figure class="panel panel--blue">
-          <div class="panel__bar">
-            <span class="panel__title">Log analysis</span>
-            <span class="chip">Example</span>
-          </div>
-          <div class="panel__body">
-            <div class="ingest">
-              <div class="vm-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-              <div class="ingest__meta">
-                <strong>Ingesting from 3 sources</strong>
-                <span class="mono">SIEM, EDR, edge firewall</span>
-              </div>
-            </div>
-            <div class="summary">
-              <div class="summary__head">
-                <span class="summary__score">92</span>
-                <span class="sev sev--critical"><i></i>Critical</span>
-                <span class="chip">AI summary</span>
-              </div>
-              <p>Twelve failed logins for svc-backup from 203.0.113.24 were followed by a successful login at 14:01. This matches a brute-force compromise of a service account.</p>
-              <ul>
-                <li>Block 203.0.113.24 at the edge firewall</li>
-                <li>Reset the svc-backup credentials</li>
-                <li>Review sessions opened by svc-backup since 14:01</li>
-              </ul>
-            </div>
-          </div>
-          <p class="panel__foot">AI output is advisory. Actions run only through your response flows and approval rules.</p>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="band" id="ai" aria-labelledby="ai-title">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="ai-title">Your model, your keys, your data.</h2>
-        <p class="lead">Every AI feature goes through one layer, so the model provider is a setting, not a dependency. AI summarizes logs, scores risk, writes reports, and answers questions. It does not act on its own.</p>
-      </div>
-      <div class="providers" aria-label="Supported model providers">
-        <span class="chip">Anthropic</span>
-        <span class="chip">Google Gemini</span>
-        <span class="chip">OpenAI</span>
-        <span class="chip">Self-hosted open model</span>
-      </div>
-      <div class="facts">
-        <div class="fact"><h3>Choose per tenant</h3><p>Pick a default model and override it per feature, such as a lower-cost model for summaries and a stronger one for reports.</p></div>
-        <div class="fact"><h3>Bring your own key</h3><p>Keys are encrypted per tenant and never logged. Usage bills to your own provider account under your own agreement.</p></div>
-        <div class="fact"><h3>Run fully offline</h3><p>Air-gapped installs use a self-hosted open model, so no prompt leaves your network.</p></div>
-        <div class="fact"><h3>Advisory by design</h3><p>AI never runs an offensive action or a response flow without the approval and scope checks. Prompts and outputs stay with their tenant.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band band--alt" id="connectors" aria-labelledby="connectors-title">
-    <div class="wrap">
-      <div class="split split--flush">
+      <div class="why__head">
         <div class="section-head">
-          <h2 id="connectors-title">Everything outside Violet is a connector.</h2>
-          <p class="lead">Each integration and tool is a signed, versioned package. Install it from the catalog, configure it, and it appears as nodes, log sources, and actions. It runs sandboxed, with only the network access and secrets its manifest declares.</p>
+          <span class="label">Why Violet?</span>
+          <h2 class="section-title" id="why-title">Security operations without the headcount.</h2>
+          <p class="lead">Violet is built for the team you have: it does the expert work in the background and keeps a person in charge of every action that matters.</p>
         </div>
-        <figure class="panel" aria-labelledby="siem-caption">
-          <div class="panel__bar"><span class="panel__title" id="siem-caption">Connecting a log source</span></div>
-          <div class="panel__body">
-            <svg class="siem" viewBox="0 0 320 120" role="img" aria-label="Violet connecting to a SIEM, then connected">
-              <svg x="16" y="20" width="80" height="80" viewBox="0 0 200 200" class="vm-mark">
-                <path class="vm-s-red" d="M48 44 L79 108" stroke-width="22"/>
-                <path class="vm-s-blue" d="M152 44 L121 108" stroke-width="22"/>
-                <path class="vm-s-violet" d="M79 108 L100 150 L121 108" stroke-width="22"/>
-              </svg>
-              <path class="vm-siem__base" d="M108 60 H206"/>
-              <path class="vm-siem__connecting" d="M108 60 H206"/>
-              <path class="vm-siem__connected" d="M108 60 H206"/>
-              <rect class="vm-siem__box" x="206" y="28" width="98" height="64" rx="6"/>
-              <text class="siem__label" x="222" y="65">SIEM</text>
-              <path class="vm-siem__check" d="M266 60 L273 67 L288 52"/>
-            </svg>
-          </div>
-        </figure>
+        <canvas class="why__art" data-art="scope" aria-hidden="true"></canvas>
       </div>
-
-      <div class="catalog">
-        <div class="catalog__group">
-          <h3><span class="dot dot--blue" aria-hidden="true"></span>Log sources</h3>
-          <ul><li>SIEM</li><li>IDS/IPS</li><li>EDR</li><li>Firewall logs</li><li>Cloud platform logs</li><li>IoT device logs</li></ul>
+      <div class="cards">
+        <div class="card">
+          <p><b>Ownership before every scan.</b> The platform refuses any target your tenant hasn't verified, in SaaS and on-prem.</p>
+          <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <ellipse cx="60" cy="110" rx="34" ry="7" fill="#4A35C4"/>
+            <rect x="54" y="76" width="12" height="32" rx="3" fill="#EDE8FF" stroke="#2E2370" stroke-width="2.5"/>
+            <circle cx="60" cy="54" r="36" fill="#FFFFFF" stroke="#2E2370" stroke-width="2.5"/>
+            <circle cx="60" cy="54" r="27" fill="#D6455C" stroke="#2E2370" stroke-width="2.5"/>
+            <circle cx="60" cy="54" r="18" fill="#FFFFFF" stroke="#2E2370" stroke-width="2.5"/>
+            <circle cx="60" cy="54" r="9" fill="#D6455C" stroke="#2E2370" stroke-width="2.5"/>
+            <circle cx="93" cy="24" r="15" fill="#46C28E" stroke="#2E2370" stroke-width="2.5"/>
+            <path d="M86 24 L91 29 L100 19" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
-        <div class="catalog__group">
-          <h3><span class="dot dot--blue" aria-hidden="true"></span>Response actions</h3>
-          <ul><li>Isolate host</li><li>Kill process</li><li>Block IP or range</li><li>Revoke session</li><li>Reset credential</li><li>Create ticket</li></ul>
+        <div class="card">
+          <p><b>Contained in seconds.</b> Response flows act the moment a matching incident appears, and every action lands in the audit log.</p>
+          <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <ellipse cx="62" cy="111" rx="32" ry="6" fill="#4A35C4"/>
+            <path d="M8 52 H24 M4 66 H20 M8 80 H24" stroke="#3E8BFF" stroke-width="4.5" stroke-linecap="round"/>
+            <rect x="56" y="10" width="14" height="10" rx="3" fill="#F2C94C" stroke="#2E2370" stroke-width="2.5"/>
+            <rect x="59" y="19" width="8" height="9" fill="#EDE8FF" stroke="#2E2370" stroke-width="2.5"/>
+            <circle cx="63" cy="66" r="40" fill="#EDE8FF" stroke="#2E2370" stroke-width="2.5"/>
+            <circle cx="63" cy="66" r="31" fill="#FFFFFF" stroke="#2E2370" stroke-width="2.5"/>
+            <path d="M63 39 V45 M90 66 H84 M63 93 V87 M36 66 H42" stroke="#2E2370" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M63 66 V44" stroke="#6E56E6" stroke-width="4" stroke-linecap="round"/>
+            <path d="M63 66 L79 74" stroke="#D6455C" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="63" cy="66" r="4" fill="#2E2370"/>
+          </svg>
         </div>
-        <div class="catalog__group">
-          <h3><span class="dot dot--red" aria-hidden="true"></span>Assessment</h3>
-          <ul><li>Network mapping</li><li>Vulnerability scanning</li><li>Safe-mode validation</li><li>Custom nodes</li></ul>
+        <div class="card">
+          <p><b>Your model, your keys.</b> Choose Anthropic, Google, OpenAI, or a local model per tenant. AI advises; people approve.</p>
+          <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <ellipse cx="60" cy="110" rx="36" ry="6" fill="#4A35C4"/>
+            <path d="M68 14 V8 M80 14 V8 M92 14 V8 M68 74 V80 M80 74 V80 M92 74 V80 M56 26 H50 M56 38 H50 M56 50 H50 M56 62 H50 M104 26 H110 M104 38 H110 M104 50 H110 M104 62 H110" stroke="#EDE8FF" stroke-width="3" stroke-linecap="round"/>
+            <rect x="56" y="14" width="48" height="60" rx="8" fill="#2E2370" stroke="#2E2370" stroke-width="2.5"/>
+            <rect x="66" y="28" width="28" height="30" rx="4" fill="#8E79F0"/>
+            <circle cx="34" cy="78" r="20" fill="#F2C94C" stroke="#2E2370" stroke-width="2.5"/>
+            <circle cx="34" cy="78" r="7" fill="#6E56E6" stroke="#2E2370" stroke-width="2.5"/>
+            <rect x="51" y="73" width="50" height="10" rx="4" fill="#F2C94C" stroke="#2E2370" stroke-width="2.5"/>
+            <rect x="82" y="81" width="7" height="12" rx="1.5" fill="#F2C94C" stroke="#2E2370" stroke-width="2.5"/>
+            <rect x="92" y="81" width="6" height="9" rx="1.5" fill="#F2C94C" stroke="#2E2370" stroke-width="2.5"/>
+          </svg>
         </div>
-        <div class="catalog__group">
-          <h3><span class="dot dot--violet" aria-hidden="true"></span>Notify and orchestrate</h3>
-          <ul><li>Email, in-app, push</li><li>Slack, Teams, webhook</li><li>Ansible</li><li>Terraform</li><li>Jenkins</li></ul>
+        <div class="card">
+          <p><b>Runs where you need it.</b> SaaS, an on-prem appliance, or fully air-gapped, from one codebase with the same features.</p>
+          <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <ellipse cx="60" cy="112" rx="38" ry="6" fill="#4A35C4"/>
+            <g fill="#2E2370" stroke="#2E2370" stroke-width="5" stroke-linejoin="round">
+              <circle cx="40" cy="30" r="13"/><circle cx="58" cy="22" r="17"/><circle cx="76" cy="31" r="12"/><rect x="28" y="30" width="58" height="14" rx="7"/>
+            </g>
+            <g fill="#FFFFFF">
+              <circle cx="40" cy="30" r="13"/><circle cx="58" cy="22" r="17"/><circle cx="76" cy="31" r="12"/><rect x="28" y="30" width="58" height="14" rx="7"/>
+            </g>
+            <path d="M58 48 V66" stroke="#EDE8FF" stroke-width="3" stroke-dasharray="4 4" stroke-linecap="round"/>
+            <rect x="20" y="68" width="80" height="18" rx="5" fill="#FFFFFF" stroke="#2E2370" stroke-width="2.5"/>
+            <rect x="20" y="88" width="80" height="18" rx="5" fill="#FFFFFF" stroke="#2E2370" stroke-width="2.5"/>
+            <circle cx="32" cy="77" r="3.5" fill="#46C28E"/><circle cx="42" cy="77" r="3.5" fill="#F2C94C"/><circle cx="32" cy="97" r="3.5" fill="#46C28E"/>
+            <path d="M64 77 H90 M64 97 H90" stroke="#D8CCFF" stroke-width="4" stroke-linecap="round"/>
+          </svg>
         </div>
       </div>
+    </div>
+  </section>
 
-      <ol class="lifecycle" aria-label="How a connector is installed">
-        <li><strong>Verify</strong><span>Signature, platform compatibility, and license entitlement are checked first.</span></li>
-        <li><strong>Install</strong><span>The connector goes into your tenant's sandboxed runtime.</span></li>
-        <li><strong>Configure</strong><span>Credentials are encrypted and never logged.</span></li>
-        <li><strong>Check health</strong><span>Violet tests the connection before anyone relies on it.</span></li>
-        <li><strong>Use</strong><span>It appears as nodes, sources, and actions in both modules.</span></li>
+  <section class="closing" id="launch" aria-labelledby="launch-title">
+    <div class="wrap">
+      <h2 class="visually-hidden" id="launch-title">Violet is deploying soon</h2>
+      <div class="art">
+        <canvas data-art="word" data-text="deploying soon" data-narrow="deploying|soon" data-seed="21" aria-hidden="true"></canvas>
+      </div>
+      <p class="closing__text"><span>Violet is deploying soon.</span> <span>Early access opens with the first release.</span></p>
+      <ol class="releases" aria-label="Launch plan">
+        <li class="release release--now"><span class="label">Release 1, in development</span><h3>Blue team console</h3><p>Log ingestion, AI summaries with risk scores, and response flows with approval gates.</p></li>
+        <li class="release"><span class="label">Release 2, planned</span><h3>Red team and tenants</h3><p>The red team canvas behind the ownership gate, roles, connectors, and model choice.</p></li>
+        <li class="release"><span class="label">Release 3, planned</span><h3>On-prem appliance</h3><p>An ISO or VM image with offline licensing, signed updates, and air-gapped installs.</p></li>
+        <li class="release"><span class="label">Release 4, planned</span><h3>MSSP and API</h3><p>The master console with client quotas, plus a public API and webhooks.</p></li>
       </ol>
-      <p class="note">Air-gapped? Export a signed bundle on a connected machine and import it on the appliance. Verification is identical and never contacts our cloud.</p>
-    </div>
-  </section>
-
-  <section class="band" id="deployment" aria-labelledby="deploy-title">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="deploy-title">Run it in our cloud or on your own hardware.</h2>
-        <p class="lead">One codebase ships three ways, with no feature forks between them. The only differences are scale and what talks to the outside.</p>
-      </div>
-      <div class="table-scroll">
-        <table class="compare">
-          <caption class="visually-hidden">Deployment options compared</caption>
-          <thead>
-            <tr><th scope="col"><span class="visually-hidden">Dimension</span></th><th scope="col">SaaS</th><th scope="col">On-prem appliance</th><th scope="col">Hybrid</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Who hosts</th><td>We do</td><td>You do</td><td>You host the data plane, we run the control plane</td></tr>
-            <tr><th scope="row">Form factor</th><td>Web app in our cloud</td><td>ISO, VM, or container image with a license key</td><td>Appliance with managed updates</td></tr>
-            <tr><th scope="row">Tenancy</th><td>Many tenants, isolated</td><td>Single tenant</td><td>Single tenant</td></tr>
-            <tr><th scope="row">Data location</th><td>Our cloud, in the region you choose</td><td>Fully on your premises</td><td>On your premises, telemetry optional</td></tr>
-            <tr><th scope="row">AI</th><td>Managed keys or your own</td><td>Your key, or a local model when air-gapped</td><td>Your key or a local model</td></tr>
-            <tr><th scope="row">Updates</th><td>Continuous</td><td>Signed packages you apply</td><td>Pushed by us, approved by you</td></tr>
-            <tr><th scope="row">Best for</th><td>Small to mid-market teams and MSSPs</td><td>Government, defense, finance, and air-gapped sites</td><td>Enterprises with data-residency rules</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="note">Licenses validate offline. If one lapses, Violet enters a grace period and keeps monitoring and alerting running, so a license problem never leaves your SOC blind.</p>
-    </div>
-  </section>
-
-  <section class="band band--alt" id="mssp" aria-labelledby="mssp-title">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="mssp-title">Serve every client from one master tenant.</h2>
-        <p class="lead">For managed security providers, Violet's multi-tenancy is the product: one console, many clients, and no data crossing between them.</p>
-      </div>
-      <div class="facts">
-        <div class="fact"><h3>One login, every client</h3><p>A portfolio view of open incidents, health, and usage per client, with one-click switching into any of them.</p></div>
-        <div class="fact"><h3>Isolation between clients</h3><p>Each client's logs, flows, and findings stay separate. Operators act only in the clients they're assigned.</p></div>
-        <div class="fact"><h3>Build once, push to many</h3><p>Push a response flow, a connector, or a knowledge-base entry from your master tenant to the clients you choose.</p></div>
-        <div class="fact"><h3>Client slots in your license</h3><p>Onboard new clients yourself while under quota. The console shows slots used against slots licensed.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band" id="security" aria-labelledby="security-title">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="security-title">Built to the standard of the systems it protects.</h2>
-        <p class="lead">Violet holds your raw security data and runs offensive tooling. The controls that keep it safe are first-class features, not settings.</p>
-      </div>
-      <div class="facts">
-        <div class="fact"><h3>Tenant isolation in the database</h3><p>Every row is scoped to its tenant and enforced below the application. Automated tests check isolation on every change.</p></div>
-        <div class="fact"><h3>Ownership before any scan</h3><p>The platform refuses a scan against any target your tenant hasn't verified, in SaaS and on-prem alike.</p></div>
-        <div class="fact"><h3>Sandboxed connectors</h3><p>Each connector runs isolated, reaches only the hosts its manifest declares, and receives secrets only for the duration of a call.</p></div>
-        <div class="fact"><h3>Signed connectors and releases</h3><p>Everything is signed and verified before it runs, including offline bundles on the appliance.</p></div>
-        <div class="fact"><h3>Secrets in a vault</h3><p>Credentials and API keys are encrypted per tenant and never written to logs or the configuration database.</p></div>
-        <div class="fact"><h3>Immutable audit log</h3><p>Every scan, published flow, connector install, and role change is recorded with the actor, the time, and the state before and after.</p></div>
-        <div class="fact"><h3>Roles and separation of duties</h3><p>Owner, Admin, Flow Author, Analyst, and Read-only roles. High-risk actions need an elevated role and can require a separate approver.</p></div>
-        <div class="fact"><h3>Encryption and supply chain</h3><p>Encryption in transit and at rest, pinned and scanned dependencies, and a software bill of materials for the appliance image.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band band--alt" id="launch" aria-labelledby="launch-title">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="status"><span class="dot dot--warning" aria-hidden="true"></span>Deploying soon</span>
-        <h2 id="launch-title">Violet is deploying soon.</h2>
-        <p class="lead">Violet ships in four releases. Each one lands only after it passes its own security and isolation checks.</p>
-      </div>
-      <ol class="releases">
-        <li class="release">
-          <span class="release__n">1</span>
-          <div><h3>Blue team console</h3><p>Log ingestion, AI summaries with risk scores, and automated response flows with approval gates.</p></div>
-          <span class="status"><span class="dot dot--violet" aria-hidden="true"></span>In development</span>
-        </li>
-        <li class="release">
-          <span class="release__n">2</span>
-          <div><h3>Red team and multi-tenancy</h3><p>The red team canvas behind the ownership gate, isolated tenants with roles, the connector catalog, and model choice per tenant.</p></div>
-          <span class="status"><span class="dot" aria-hidden="true"></span>Planned</span>
-        </li>
-        <li class="release">
-          <span class="release__n">3</span>
-          <div><h3>On-prem appliance</h3><p>The same platform as an ISO or VM image, with offline licensing, signed updates, and air-gapped installs.</p></div>
-          <span class="status"><span class="dot" aria-hidden="true"></span>Planned</span>
-        </li>
-        <li class="release">
-          <span class="release__n">4</span>
-          <div><h3>MSSP console and platform API</h3><p>The master console with client quotas, plus a public API and webhooks for scripting Violet from your own tools.</p></div>
-          <span class="status"><span class="dot" aria-hidden="true"></span>Planned</span>
-        </li>
-      </ol>
-      <p class="launch-note">Early access opens with the first release.</p>
     </div>
   </section>
 
@@ -645,7 +438,7 @@
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="lockup lockup--footer" href="#top" aria-label="Violet home">
+        <a class="lockup" href="#top" aria-label="Violet home">
           <svg class="vm-mark" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
             <path class="vm-s-red" d="M48 44 L79 108" stroke-width="22"/>
             <path class="vm-s-blue" d="M152 44 L121 108" stroke-width="22"/>
@@ -656,28 +449,30 @@
         <p>Red and blue, one workspace.</p>
       </div>
       <nav class="footer-col" aria-labelledby="f-product">
-        <h2 id="f-product">Product</h2>
+        <span class="label" id="f-product">Product</span>
         <ul>
-          <li><a href="#red-team">Red team</a></li>
-          <li><a href="#blue-team">Blue team</a></li>
-          <li><a href="#product">Knowledge base</a></li>
-          <li><a href="#connectors">Connectors</a></li>
+          <li class="strong"><a href="#product">One workspace</a></li>
+          <li><a href="#modules">Red team</a></li>
+          <li><a href="#modules">Blue team</a></li>
+          <li><a href="#modules">Response flows</a></li>
+          <li><a href="#modules">Knowledge base</a></li>
         </ul>
       </nav>
       <nav class="footer-col" aria-labelledby="f-platform">
-        <h2 id="f-platform">Platform</h2>
+        <span class="label" id="f-platform">Platform</span>
         <ul>
-          <li><a href="#ai">AI providers</a></li>
-          <li><a href="#deployment">Deployment</a></li>
-          <li><a href="#mssp">MSSP</a></li>
-          <li><a href="#security">Security</a></li>
+          <li class="strong"><a href="#why">Why Violet</a></li>
+          <li><a href="#why">Ownership gate</a></li>
+          <li><a href="#why">AI providers</a></li>
+          <li><a href="#why">Deployment</a></li>
+          <li><a href="#modules">MSSPs</a></li>
         </ul>
       </nav>
-      <nav class="footer-col" aria-labelledby="f-violet">
-        <h2 id="f-violet">Violet</h2>
+      <nav class="footer-col" aria-labelledby="f-launch">
+        <span class="label" id="f-launch">Launch</span>
         <ul>
-          <li><a href="#roles">Who it's for</a></li>
-          <li><a href="#launch">Launch plan</a></li>
+          <li class="strong"><a href="#launch">Launch plan</a></li>
+          <li><a href="#launch">Early access</a></li>
         </ul>
       </nav>
     </div>

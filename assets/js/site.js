@@ -1,35 +1,6 @@
 (function () {
   "use strict";
 
-  var root = document.documentElement;
-  var THEME_KEY = "violet-theme";
-
-  function writeTheme(value) {
-    try { localStorage.setItem(THEME_KEY, value); } catch (e) { /* storage blocked: keep the in-page choice only */ }
-  }
-  function effectiveTheme() {
-    var set = root.getAttribute("data-theme");
-    if (set === "light" || set === "dark") return set;
-    return window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-  }
-
-  function initTheme() {
-    var toggle = document.querySelector("[data-theme-toggle]");
-    if (!toggle) return;
-    function label() {
-      var next = effectiveTheme() === "dark" ? "light" : "dark";
-      toggle.textContent = next === "light" ? "Light theme" : "Dark theme";
-      toggle.setAttribute("aria-label", "Switch to " + next + " theme");
-    }
-    toggle.addEventListener("click", function () {
-      var next = effectiveTheme() === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      writeTheme(next);
-      label();
-    });
-    label();
-  }
-
   function initMenu() {
     var button = document.querySelector("[data-menu-toggle]");
     var nav = document.getElementById("site-nav");
@@ -39,12 +10,8 @@
       button.setAttribute("aria-expanded", open ? "true" : "false");
       button.textContent = open ? "Close" : "Menu";
     }
-    button.addEventListener("click", function () {
-      setOpen(nav.getAttribute("data-open") !== "true");
-    });
-    nav.addEventListener("click", function (event) {
-      if (event.target.closest("a")) setOpen(false);
-    });
+    button.addEventListener("click", function () { setOpen(nav.getAttribute("data-open") !== "true"); });
+    nav.addEventListener("click", function (event) { if (event.target.closest("a")) setOpen(false); });
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape" && nav.getAttribute("data-open") === "true") {
         setOpen(false);
@@ -67,8 +34,10 @@
         var panel = document.getElementById(tab.getAttribute("aria-controls"));
         if (panel) panel.hidden = !selected;
       });
-      list.style.setProperty("--vm-tab", String(index));
-      if (focus) tabs[index].focus();
+      if (focus) {
+        tabs[index].focus();
+        tabs[index].scrollIntoView({ block: "nearest", inline: "nearest" });
+      }
     }
 
     tabs.forEach(function (tab, i) {
@@ -94,7 +63,6 @@
   }
 
   function start() {
-    initTheme();
     initMenu();
     initTabs();
     initYear();
