@@ -1,7 +1,53 @@
 (function () {
   "use strict";
 
-  function initMenu() {
+  var triggers = [];
+
+  function setPanel(trigger, open) {
+    trigger.setAttribute("aria-expanded", open ? "true" : "false");
+    var panel = document.getElementById(trigger.getAttribute("aria-controls"));
+    if (panel) panel.hidden = !open;
+  }
+  function closePanels(except) {
+    triggers.forEach(function (t) { if (t !== except) setPanel(t, false); });
+  }
+
+  function initMenus() {
+    triggers = Array.prototype.slice.call(document.querySelectorAll(".nav-trigger"));
+    var desktopHover = window.matchMedia("(hover: hover) and (min-width: 961px)");
+    var closeTimer = null;
+
+    triggers.forEach(function (trigger) {
+      var item = trigger.parentElement;
+      trigger.addEventListener("click", function () {
+        var open = trigger.getAttribute("aria-expanded") !== "true";
+        closePanels(trigger);
+        setPanel(trigger, open);
+      });
+      item.addEventListener("mouseenter", function () {
+        if (!desktopHover.matches) return;
+        clearTimeout(closeTimer);
+        closePanels(trigger);
+        setPanel(trigger, true);
+      });
+      item.addEventListener("mouseleave", function () {
+        if (!desktopHover.matches) return;
+        closeTimer = setTimeout(function () { setPanel(trigger, false); }, 180);
+      });
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!event.target.closest(".nav-item")) closePanels(null);
+      if (event.target.closest(".mega a")) closePanels(null);
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape") return;
+      var open = triggers.filter(function (t) { return t.getAttribute("aria-expanded") === "true"; })[0];
+      if (open) { setPanel(open, false); open.focus(); }
+    });
+  }
+
+  function initMobileNav() {
     var button = document.querySelector("[data-menu-toggle]");
     var nav = document.getElementById("site-nav");
     if (!button || !nav) return;
@@ -9,11 +55,14 @@
       nav.setAttribute("data-open", open ? "true" : "false");
       button.setAttribute("aria-expanded", open ? "true" : "false");
       button.textContent = open ? "Close" : "Menu";
+      if (!open) closePanels(null);
     }
     button.addEventListener("click", function () { setOpen(nav.getAttribute("data-open") !== "true"); });
     nav.addEventListener("click", function (event) { if (event.target.closest("a")) setOpen(false); });
     document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && nav.getAttribute("data-open") === "true") {
+      if (event.key === "Escape" && nav.getAttribute("data-open") === "true" && !triggers.some(function (t) {
+        return t.getAttribute("aria-expanded") === "true";
+      })) {
         setOpen(false);
         button.focus();
       }
@@ -54,6 +103,15 @@
         }
       });
     });
+
+    document.addEventListener("click", function (event) {
+      var link = event.target.closest("a[data-tab]");
+      if (!link) return;
+      var target = document.getElementById("tab-" + link.getAttribute("data-tab"));
+      var index = tabs.indexOf(target);
+      if (index >= 0) select(index, false);
+    });
+
     select(0, false);
   }
 
@@ -63,7 +121,8 @@
   }
 
   function start() {
-    initMenu();
+    initMenus();
+    initMobileNav();
     initTabs();
     initYear();
   }

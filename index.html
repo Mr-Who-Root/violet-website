@@ -11,14 +11,14 @@
 <meta property="og:title" content="Violet">
 <meta property="og:description" content="Red and blue team operations and incident response in one workspace. Deploying soon.">
 <meta property="og:type" content="website">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.svg?v=0b17229cc9" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..800&family=Hanken+Grotesk:wght@700&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400..700&display=swap">
-<link rel="stylesheet" href="assets/motion/violet-motion.css">
-<link rel="stylesheet" href="assets/css/site.css">
-<script src="assets/js/site.js" defer></script>
-<script src="assets/js/art.js" defer></script>
+<link rel="stylesheet" href="assets/motion/violet-motion.css?v=b8c4e7733e">
+<link rel="stylesheet" href="assets/css/site.css?v=944aca82ae">
+<script src="assets/js/site.js?v=553d10aa54" defer></script>
+<script src="assets/js/art.js?v=268a24bd73" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -34,11 +34,105 @@
       <span>Violet</span>
     </a>
     <nav class="site-nav" id="site-nav" aria-label="Main" data-open="false">
-      <ul>
-        <li><a href="#product">Product</a></li>
-        <li><a href="#modules">Modules</a></li>
-        <li><a href="#why">Why Violet</a></li>
-        <li><a href="#launch">Launch plan</a></li>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="menu-product">Product <svg class="caret" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1 L5 5 L9 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="mega mega--product" id="menu-product" hidden>
+            <a class="mega-card mega-card--hero" href="#product">
+              <span class="mega-card__title">Violet platform</span>
+              <span class="mega-card__desc">One workspace for red team, blue team, and automated response.</span>
+              <svg class="mega-card__art" viewBox="0 0 240 120" aria-hidden="true" focusable="false">
+                <rect x="70" y="14" width="136" height="88" rx="10" fill="#14151C" stroke="#14151C" stroke-width="2.5"/>
+                <rect x="70" y="14" width="136" height="20" rx="10" fill="#D6455C" stroke="#14151C" stroke-width="2.5"/>
+                <circle cx="84" cy="24" r="3" fill="#FFFFFF"/><circle cx="95" cy="24" r="3" fill="#FFFFFF"/><circle cx="106" cy="24" r="3" fill="#FFFFFF"/>
+                <path d="M82 48 L88 52 L82 56 M82 64 L88 68 L82 72 M82 80 L88 84 L82 88" fill="none" stroke="#46C28E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M96 52 H170 M96 68 H150 M96 84 H182" stroke="#EFEFF4" stroke-width="3.5" stroke-linecap="round"/>
+                <path d="M42 66 H30 M42 78 H30 M42 90 H30 M66 66 H54 M66 78 H54 M66 90 H54" stroke="#E2E3EC" stroke-width="3" stroke-linecap="round"/>
+                <rect x="30" y="58" width="36" height="40" rx="6" fill="#3E8BFF" stroke="#14151C" stroke-width="2.5"/>
+                <rect x="40" y="68" width="16" height="20" rx="3" fill="#14151C"/>
+                <path d="M184 76 V68 A14 14 0 0 1 212 68 V76" fill="none" stroke="#14151C" stroke-width="9"/>
+                <path d="M184 76 V68 A14 14 0 0 1 212 68 V76" fill="none" stroke="#ECEDF2" stroke-width="5"/>
+                <rect x="174" y="74" width="48" height="36" rx="7" fill="#6E56E6" stroke="#14151C" stroke-width="2.5"/>
+                <circle cx="198" cy="88" r="4.5" fill="#14151C"/><rect x="196" y="88" width="4" height="10" rx="1.5" fill="#14151C"/>
+              </svg>
+            </a>
+            <div class="mega-stack">
+              <a class="mega-card mega-card--violet" href="#modules" data-tab="red">
+                <span class="mega-card__title">Red team</span>
+                <span class="mega-card__desc">Assessment flows behind the ownership gate, with an AI report.</span>
+              </a>
+              <a class="mega-card mega-card--violet" href="#modules" data-tab="blue">
+                <span class="mega-card__title">Blue team</span>
+                <span class="mega-card__desc">Log analysis with a risk score on every event.</span>
+              </a>
+            </div>
+            <div class="mega-card mega-card--light">
+              <span class="mega-card__title">More in Violet</span>
+              <ul class="mega-links">
+                <li><a href="#modules" data-tab="response">Response flows</a><span>Trigger, condition, action, API</span></li>
+                <li><a href="#modules" data-tab="kb">Knowledge base</a><span>Grounded answers in context</span></li>
+                <li><a href="#why">AI providers</a><span>Your model, your keys</span></li>
+                <li><a href="#launch">Launch plan</a><span>Four releases</span></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="menu-solutions">Solutions <svg class="caret" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1 L5 5 L9 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="mega mega--solutions" id="menu-solutions" hidden>
+            <div class="mega-group mega-group--lav">
+              <span class="label">By team</span>
+              <div class="mega-row">
+                <a class="mega-card tone-red" href="#modules" data-tab="red">
+                  <span class="mega-card__title">Red teams</span>
+                  <span class="mega-card__desc">Repeatable assessments, scoped and audited.</span>
+                  <svg class="mega-card__icon" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+                    <rect x="54" y="76" width="12" height="32" rx="3" fill="#EFEFF4" stroke="#14151C" stroke-width="2.5"/>
+                    <circle cx="60" cy="54" r="36" fill="#FFFFFF" stroke="#14151C" stroke-width="2.5"/>
+                    <circle cx="60" cy="54" r="24" fill="#D6455C" stroke="#14151C" stroke-width="2.5"/>
+                    <circle cx="60" cy="54" r="11" fill="#FFFFFF" stroke="#14151C" stroke-width="2.5"/>
+                    <circle cx="93" cy="24" r="15" fill="#46C28E" stroke="#14151C" stroke-width="2.5"/>
+                    <path d="M86 24 L91 29 L100 19" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <a class="mega-card tone-blue" href="#modules" data-tab="blue">
+                  <span class="mega-card__title">SOC teams</span>
+                  <span class="mega-card__desc">Triage by risk and contain incidents in seconds.</span>
+                  <svg class="mega-card__icon" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+                    <rect x="18" y="22" width="84" height="62" rx="8" fill="#EFEFF4" stroke="#14151C" stroke-width="2.5"/>
+                    <rect x="26" y="30" width="68" height="46" rx="4" fill="#0E0F16"/>
+                    <path d="M32 66 L44 56 L54 62 L66 44 L78 52 L88 38" fill="none" stroke="#6FA8FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="66" cy="44" r="4" fill="#D6455C"/>
+                    <rect x="54" y="84" width="12" height="14" fill="#EFEFF4" stroke="#14151C" stroke-width="2.5"/>
+                    <rect x="38" y="98" width="44" height="8" rx="3" fill="#A7ABBE" stroke="#14151C" stroke-width="2.5"/>
+                  </svg>
+                </a>
+                <a class="mega-card tone-orange" href="#modules" data-tab="mssp">
+                  <span class="mega-card__title">MSSPs</span>
+                  <span class="mega-card__desc">Every client from one console, kept apart.</span>
+                  <svg class="mega-card__icon" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+                    <path d="M60 46 C60 66 26 62 26 82 M60 46 V82 M60 46 C60 66 94 62 94 82" fill="none" stroke="#14151C" stroke-width="2.5"/>
+                    <rect x="38" y="16" width="44" height="32" rx="7" fill="#5B46D9" stroke="#14151C" stroke-width="2.5"/>
+                    <rect x="12" y="80" width="28" height="24" rx="5" fill="#FFFFFF" stroke="#14151C" stroke-width="2.5"/>
+                    <rect x="46" y="80" width="28" height="24" rx="5" fill="#FFFFFF" stroke="#14151C" stroke-width="2.5"/>
+                    <rect x="80" y="80" width="28" height="24" rx="5" fill="#FFFFFF" stroke="#14151C" stroke-width="2.5"/>
+                    <circle cx="26" cy="92" r="4" fill="#D6455C"/><circle cx="60" cy="92" r="4" fill="#3E8BFF"/><circle cx="94" cy="92" r="4" fill="#46C28E"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="mega-group mega-group--peach">
+              <span class="label">By deployment</span>
+              <ul class="mega-list">
+                <li><a href="#deploy"><span class="mega-list__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 18 H17 A4 4 0 0 0 17 10 A6 6 0 0 0 6 11 A3.5 3.5 0 0 0 7 18 Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span><span><b>SaaS</b><small>We host it, in the region you choose.</small></span></a></li>
+                <li><a href="#deploy"><span class="mega-list__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="4" y="13" width="16" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="8" cy="7.5" r="1.2" fill="currentColor"/><circle cx="8" cy="16.5" r="1.2" fill="currentColor"/></svg></span><span><b>On-prem appliance</b><small>An ISO or VM image with a license key.</small></span></a></li>
+                <li><a href="#deploy"><span class="mega-list__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 10 V7 A4 4 0 0 1 16 7 V10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span><span><b>Air-gapped</b><small>Fully offline, with a local AI model.</small></span></a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#why">Security</a></li>
+        <li class="nav-item"><a class="nav-link" href="#launch">Launch plan</a></li>
       </ul>
     </nav>
     <a class="pill pill--deep site-header__cta" href="#launch">Deploying soon</a>
@@ -62,10 +156,13 @@
           <a class="pill pill--outline" href="#launch">Launch plan</a>
         </div>
       </div>
-      <ul class="stack-strip" aria-label="Connector categories">
-        <li class="stack-strip__label"><span class="label">Connectors for the stack you already run</span></li>
-        <li>SIEM</li><li>EDR</li><li>IDS/IPS</li><li>Firewalls</li><li>Cloud</li><li>Identity</li><li>Ticketing</li><li>Slack</li><li>Ansible</li>
-      </ul>
+      <div class="stack">
+        <span class="label">Connectors for the stack you already run</span>
+        <div class="marquee">
+          <ul class="marquee__track" aria-label="Connector categories"><li>SIEM</li><li>EDR</li><li>IDS/IPS</li><li>Firewalls</li><li>Cloud</li><li>Identity</li><li>Ticketing</li><li>Slack</li><li>Teams</li><li>Ansible</li><li>Terraform</li><li>Jenkins</li><li>Webhooks</li></ul>
+          <ul class="marquee__track" aria-hidden="true"><li>SIEM</li><li>EDR</li><li>IDS/IPS</li><li>Firewalls</li><li>Cloud</li><li>Identity</li><li>Ticketing</li><li>Slack</li><li>Teams</li><li>Ansible</li><li>Terraform</li><li>Jenkins</li><li>Webhooks</li></ul>
+        </div>
+      </div>
       <div class="art art--hero">
         <canvas data-art="word" data-text="red+blue" data-narrow="red+|blue" data-zones="red:3,violet:1,blue:4" data-seed="7" role="img" aria-label="red plus blue, drawn in flowers and rosettes"></canvas>
         <span class="ribbon ribbon--red" aria-hidden="true">Red team</span>
@@ -84,17 +181,17 @@
         <h2 id="problem-title">Good security work needs experts. <b>Most teams can't hire enough of them.</b></h2>
         <svg class="tangle" viewBox="0 0 220 160" aria-hidden="true" focusable="false">
           <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M24 118 C 52 30, 112 138, 150 62 S 196 32, 196 96" stroke="#2E2370" stroke-width="16"/>
+            <path d="M24 118 C 52 30, 112 138, 150 62 S 196 32, 196 96" stroke="#14151C" stroke-width="16"/>
             <path d="M24 118 C 52 30, 112 138, 150 62 S 196 32, 196 96" stroke="#D6455C" stroke-width="10"/>
-            <path d="M30 42 C 84 132, 120 22, 186 122" stroke="#2E2370" stroke-width="16"/>
+            <path d="M30 42 C 84 132, 120 22, 186 122" stroke="#14151C" stroke-width="16"/>
             <path d="M30 42 C 84 132, 120 22, 186 122" stroke="#3E8BFF" stroke-width="10"/>
-            <path d="M70 142 C 40 80, 132 50, 110 116 S 168 144, 198 44" stroke="#2E2370" stroke-width="16"/>
-            <path d="M70 142 C 40 80, 132 50, 110 116 S 168 144, 198 44" stroke="#6E56E6" stroke-width="10"/>
+            <path d="M70 142 C 40 80, 132 50, 110 116 S 168 144, 198 44" stroke="#14151C" stroke-width="16"/>
+            <path d="M70 142 C 40 80, 132 50, 110 116 S 168 144, 198 44" stroke="#5B46D9" stroke-width="10"/>
           </g>
-          <g stroke="#2E2370" stroke-width="3" stroke-linejoin="round">
+          <g stroke="#14151C" stroke-width="3" stroke-linejoin="round">
             <polygon points="-2,-11 16,0 -2,11" fill="#D6455C" transform="translate(196 98) rotate(90)"/>
             <polygon points="-2,-11 16,0 -2,11" fill="#3E8BFF" transform="translate(186 124) rotate(56)"/>
-            <polygon points="-2,-11 16,0 -2,11" fill="#6E56E6" transform="translate(198 42) rotate(-73)"/>
+            <polygon points="-2,-11 16,0 -2,11" fill="#5B46D9" transform="translate(198 42) rotate(-73)"/>
           </g>
         </svg>
         <p>Red teamers chain tools by hand, so assessments happen rarely. Blue teamers read logs line by line while an incident unfolds. L1 analysts decide what to escalate without the depth to understand the attack.</p>
@@ -110,15 +207,15 @@
         <div class="block__grid">
           <h2 class="block__statement" id="product-title"><span>Test your defenses.</span> <span>Read your logs.</span> <span>Respond in seconds.</span></h2>
           <div class="features">
-            <div class="feature">
+            <div class="feature feature--red">
               <h3>Red team canvas</h3>
               <p>Drag scan nodes onto a canvas, validate the flow, and run it against targets you have verified. AI writes the report and scores every finding.</p>
             </div>
-            <div class="feature">
+            <div class="feature feature--blue">
               <h3>Blue team console</h3>
               <p>Ingest logs from your SIEM, EDR, and IDS/IPS. AI summarizes what matters and scores every event, so analysts start at the top of the list.</p>
             </div>
-            <div class="feature">
+            <div class="feature feature--violet">
               <h3>Automated response</h3>
               <p>Build flows from triggers, conditions, actions, and API calls. Common incidents are contained in seconds, and risky actions wait for approval.</p>
             </div>
@@ -213,7 +310,7 @@
               <div class="app__main">
                 <div class="app__head">
                   <div class="app__head-text"><span class="app__title">Triage</span><span class="app__sub">Events ranked by risk score</span></div>
-                  <span class="chip"><span class="dot dot--good"></span>Ingesting from 3 sources</span>
+                  <span class="chip"><span class="vm-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Ingesting from 3 sources</span>
                 </div>
                 <div class="split-ui">
                   <div class="table-scroll">
@@ -356,60 +453,104 @@
         <div class="card">
           <p><b>Ownership before every scan.</b> The platform refuses any target your tenant hasn't verified, in SaaS and on-prem.</p>
           <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
-            <ellipse cx="60" cy="110" rx="34" ry="7" fill="#4A35C4"/>
-            <rect x="54" y="76" width="12" height="32" rx="3" fill="#EDE8FF" stroke="#2E2370" stroke-width="2.5"/>
-            <circle cx="60" cy="54" r="36" fill="#FFFFFF" stroke="#2E2370" stroke-width="2.5"/>
-            <circle cx="60" cy="54" r="27" fill="#D6455C" stroke="#2E2370" stroke-width="2.5"/>
-            <circle cx="60" cy="54" r="18" fill="#FFFFFF" stroke="#2E2370" stroke-width="2.5"/>
-            <circle cx="60" cy="54" r="9" fill="#D6455C" stroke="#2E2370" stroke-width="2.5"/>
-            <circle cx="93" cy="24" r="15" fill="#46C28E" stroke="#2E2370" stroke-width="2.5"/>
+            <ellipse cx="60" cy="110" rx="34" ry="7" fill="#E2E3EC"/>
+            <rect x="54" y="76" width="12" height="32" rx="3" fill="#EFEFF4" stroke="#14151C" stroke-width="2.5"/>
+            <circle cx="60" cy="54" r="36" fill="#FFFFFF" stroke="#14151C" stroke-width="2.5"/>
+            <circle cx="60" cy="54" r="27" fill="#D6455C" stroke="#14151C" stroke-width="2.5"/>
+            <circle cx="60" cy="54" r="18" fill="#FFFFFF" stroke="#14151C" stroke-width="2.5"/>
+            <circle cx="60" cy="54" r="9" fill="#D6455C" stroke="#14151C" stroke-width="2.5"/>
+            <circle cx="93" cy="24" r="15" fill="#46C28E" stroke="#14151C" stroke-width="2.5"/>
             <path d="M86 24 L91 29 L100 19" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
         <div class="card">
           <p><b>Contained in seconds.</b> Response flows act the moment a matching incident appears, and every action lands in the audit log.</p>
           <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
-            <ellipse cx="62" cy="111" rx="32" ry="6" fill="#4A35C4"/>
+            <ellipse cx="62" cy="111" rx="32" ry="6" fill="#E2E3EC"/>
             <path d="M8 52 H24 M4 66 H20 M8 80 H24" stroke="#3E8BFF" stroke-width="4.5" stroke-linecap="round"/>
-            <rect x="56" y="10" width="14" height="10" rx="3" fill="#F2C94C" stroke="#2E2370" stroke-width="2.5"/>
-            <rect x="59" y="19" width="8" height="9" fill="#EDE8FF" stroke="#2E2370" stroke-width="2.5"/>
-            <circle cx="63" cy="66" r="40" fill="#EDE8FF" stroke="#2E2370" stroke-width="2.5"/>
-            <circle cx="63" cy="66" r="31" fill="#FFFFFF" stroke="#2E2370" stroke-width="2.5"/>
-            <path d="M63 39 V45 M90 66 H84 M63 93 V87 M36 66 H42" stroke="#2E2370" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M63 66 V44" stroke="#6E56E6" stroke-width="4" stroke-linecap="round"/>
+            <rect x="56" y="10" width="14" height="10" rx="3" fill="#6E56E6" stroke="#14151C" stroke-width="2.5"/>
+            <rect x="59" y="19" width="8" height="9" fill="#EFEFF4" stroke="#14151C" stroke-width="2.5"/>
+            <circle cx="63" cy="66" r="40" fill="#EFEFF4" stroke="#14151C" stroke-width="2.5"/>
+            <circle cx="63" cy="66" r="31" fill="#FFFFFF" stroke="#14151C" stroke-width="2.5"/>
+            <path d="M63 39 V45 M90 66 H84 M63 93 V87 M36 66 H42" stroke="#14151C" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M63 66 V44" stroke="#5B46D9" stroke-width="4" stroke-linecap="round"/>
             <path d="M63 66 L79 74" stroke="#D6455C" stroke-width="4" stroke-linecap="round"/>
-            <circle cx="63" cy="66" r="4" fill="#2E2370"/>
+            <circle cx="63" cy="66" r="4" fill="#14151C"/>
           </svg>
         </div>
         <div class="card">
           <p><b>Your model, your keys.</b> Choose Anthropic, Google, OpenAI, or a local model per tenant. AI advises; people approve.</p>
           <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
-            <ellipse cx="60" cy="110" rx="36" ry="6" fill="#4A35C4"/>
-            <path d="M68 14 V8 M80 14 V8 M92 14 V8 M68 74 V80 M80 74 V80 M92 74 V80 M56 26 H50 M56 38 H50 M56 50 H50 M56 62 H50 M104 26 H110 M104 38 H110 M104 50 H110 M104 62 H110" stroke="#EDE8FF" stroke-width="3" stroke-linecap="round"/>
-            <rect x="56" y="14" width="48" height="60" rx="8" fill="#2E2370" stroke="#2E2370" stroke-width="2.5"/>
-            <rect x="66" y="28" width="28" height="30" rx="4" fill="#8E79F0"/>
-            <circle cx="34" cy="78" r="20" fill="#F2C94C" stroke="#2E2370" stroke-width="2.5"/>
-            <circle cx="34" cy="78" r="7" fill="#6E56E6" stroke="#2E2370" stroke-width="2.5"/>
-            <rect x="51" y="73" width="50" height="10" rx="4" fill="#F2C94C" stroke="#2E2370" stroke-width="2.5"/>
-            <rect x="82" y="81" width="7" height="12" rx="1.5" fill="#F2C94C" stroke="#2E2370" stroke-width="2.5"/>
-            <rect x="92" y="81" width="6" height="9" rx="1.5" fill="#F2C94C" stroke="#2E2370" stroke-width="2.5"/>
+            <ellipse cx="60" cy="110" rx="36" ry="6" fill="#E2E3EC"/>
+            <path d="M68 14 V8 M80 14 V8 M92 14 V8 M68 74 V80 M80 74 V80 M92 74 V80 M56 26 H50 M56 38 H50 M56 50 H50 M56 62 H50 M104 26 H110 M104 38 H110 M104 50 H110 M104 62 H110" stroke="#EFEFF4" stroke-width="3" stroke-linecap="round"/>
+            <rect x="56" y="14" width="48" height="60" rx="8" fill="#14151C" stroke="#14151C" stroke-width="2.5"/>
+            <rect x="66" y="28" width="28" height="30" rx="4" fill="#6E56E6"/>
+            <circle cx="34" cy="78" r="20" fill="#6E56E6" stroke="#14151C" stroke-width="2.5"/>
+            <circle cx="34" cy="78" r="7" fill="#5B46D9" stroke="#14151C" stroke-width="2.5"/>
+            <rect x="51" y="73" width="50" height="10" rx="4" fill="#6E56E6" stroke="#14151C" stroke-width="2.5"/>
+            <rect x="82" y="81" width="7" height="12" rx="1.5" fill="#6E56E6" stroke="#14151C" stroke-width="2.5"/>
+            <rect x="92" y="81" width="6" height="9" rx="1.5" fill="#6E56E6" stroke="#14151C" stroke-width="2.5"/>
           </svg>
         </div>
         <div class="card">
-          <p><b>Runs where you need it.</b> SaaS, an on-prem appliance, or fully air-gapped, from one codebase with the same features.</p>
+          <p><b>Isolation you can test.</b> Each tenant's data is separated in the database, and automated tests check it on every change.</p>
           <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
-            <ellipse cx="60" cy="112" rx="38" ry="6" fill="#4A35C4"/>
-            <g fill="#2E2370" stroke="#2E2370" stroke-width="5" stroke-linejoin="round">
-              <circle cx="40" cy="30" r="13"/><circle cx="58" cy="22" r="17"/><circle cx="76" cy="31" r="12"/><rect x="28" y="30" width="58" height="14" rx="7"/>
-            </g>
-            <g fill="#FFFFFF">
-              <circle cx="40" cy="30" r="13"/><circle cx="58" cy="22" r="17"/><circle cx="76" cy="31" r="12"/><rect x="28" y="30" width="58" height="14" rx="7"/>
-            </g>
-            <path d="M58 48 V66" stroke="#EDE8FF" stroke-width="3" stroke-dasharray="4 4" stroke-linecap="round"/>
-            <rect x="20" y="68" width="80" height="18" rx="5" fill="#FFFFFF" stroke="#2E2370" stroke-width="2.5"/>
-            <rect x="20" y="88" width="80" height="18" rx="5" fill="#FFFFFF" stroke="#2E2370" stroke-width="2.5"/>
-            <circle cx="32" cy="77" r="3.5" fill="#46C28E"/><circle cx="42" cy="77" r="3.5" fill="#F2C94C"/><circle cx="32" cy="97" r="3.5" fill="#46C28E"/>
-            <path d="M64 77 H90 M64 97 H90" stroke="#D8CCFF" stroke-width="4" stroke-linecap="round"/>
+            <ellipse cx="58" cy="112" rx="38" ry="6" fill="#E2E3EC"/>
+            <rect x="14" y="70" width="76" height="30" rx="7" fill="#3E8BFF" stroke="#14151C" stroke-width="2.5"/>
+            <rect x="22" y="46" width="76" height="30" rx="7" fill="#EFEFF4" stroke="#14151C" stroke-width="2.5"/>
+            <rect x="30" y="22" width="76" height="30" rx="7" fill="#D6455C" stroke="#14151C" stroke-width="2.5"/>
+            <path d="M40 37 H70 M32 61 H62 M24 85 H54" stroke="#14151C" stroke-width="3" stroke-linecap="round"/>
+            <path d="M84 30 V24 A9 9 0 0 1 102 24 V30" fill="none" stroke="#14151C" stroke-width="7"/>
+            <path d="M84 30 V24 A9 9 0 0 1 102 24 V30" fill="none" stroke="#ECEDF2" stroke-width="3.5"/>
+            <rect x="78" y="29" width="30" height="24" rx="5" fill="#6E56E6" stroke="#14151C" stroke-width="2.5"/>
+            <circle cx="93" cy="39" r="3.5" fill="#14151C"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="deploy" aria-labelledby="deploy-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">Deployment</span>
+        <h2 class="section-title" id="deploy-title">In our cloud or on your own hardware.</h2>
+        <p class="lead">One codebase ships three ways, with the same features in each. Licenses validate offline, so a lapsed license never blinds your SOC.</p>
+      </div>
+      <div class="cards cards--three">
+        <div class="card">
+          <p><b>SaaS.</b> We host Violet in the region you choose. Use our managed AI keys or bring your own.</p>
+          <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <ellipse cx="60" cy="110" rx="36" ry="6" fill="#E2E3EC"/>
+            <g fill="#14151C" stroke="#14151C" stroke-width="5" stroke-linejoin="round"><circle cx="40" cy="58" r="16"/><circle cx="62" cy="46" r="22"/><circle cx="84" cy="60" r="14"/><rect x="26" y="58" width="70" height="20" rx="10"/></g>
+            <g fill="#FFFFFF"><circle cx="40" cy="58" r="16"/><circle cx="62" cy="46" r="22"/><circle cx="84" cy="60" r="14"/><rect x="26" y="58" width="70" height="20" rx="10"/></g>
+            <circle cx="46" cy="66" r="5" fill="#D6455C"/><circle cx="62" cy="66" r="5" fill="#5B46D9"/><circle cx="78" cy="66" r="5" fill="#3E8BFF"/>
+          </svg>
+        </div>
+        <div class="card">
+          <p><b>On-prem appliance.</b> An ISO or VM image activated by a license key, updated with signed packages you apply.</p>
+          <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <ellipse cx="60" cy="112" rx="38" ry="6" fill="#E2E3EC"/>
+            <rect x="20" y="30" width="80" height="22" rx="5" fill="#FFFFFF" stroke="#14151C" stroke-width="2.5"/>
+            <rect x="20" y="56" width="80" height="22" rx="5" fill="#EFEFF4" stroke="#14151C" stroke-width="2.5"/>
+            <rect x="20" y="82" width="80" height="22" rx="5" fill="#FFFFFF" stroke="#14151C" stroke-width="2.5"/>
+            <circle cx="32" cy="41" r="3.5" fill="#46C28E"/><circle cx="42" cy="41" r="3.5" fill="#F2C94C"/><circle cx="32" cy="67" r="3.5" fill="#46C28E"/><circle cx="32" cy="93" r="3.5" fill="#46C28E"/>
+            <path d="M62 41 H90 M62 67 H90 M62 93 H90" stroke="#A7ABBE" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="card">
+          <p><b>Air-gapped.</b> No outbound connection. A local AI model and signed offline bundles for connectors and updates.</p>
+          <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <ellipse cx="60" cy="112" rx="38" ry="6" fill="#E2E3EC"/>
+            <rect x="18" y="44" width="70" height="56" rx="8" fill="#FFFFFF" stroke="#14151C" stroke-width="2.5"/>
+            <path d="M18 62 H88" stroke="#14151C" stroke-width="2.5"/>
+            <circle cx="30" cy="53" r="3.5" fill="#46C28E"/><path d="M40 53 H76" stroke="#A7ABBE" stroke-width="4" stroke-linecap="round"/>
+            <path d="M30 76 H64 M30 88 H54" stroke="#E2E3EC" stroke-width="4" stroke-linecap="round"/>
+            <path d="M80 50 V42 A12 12 0 0 1 104 42 V50" fill="none" stroke="#14151C" stroke-width="8"/>
+            <path d="M80 50 V42 A12 12 0 0 1 104 42 V50" fill="none" stroke="#ECEDF2" stroke-width="4"/>
+            <rect x="72" y="48" width="40" height="32" rx="6" fill="#6E56E6" stroke="#14151C" stroke-width="2.5"/>
+            <circle cx="92" cy="61" r="4" fill="#14151C"/><rect x="90" y="61" width="4" height="10" rx="1.5" fill="#14151C"/>
           </svg>
         </div>
       </div>
@@ -464,7 +605,7 @@
           <li class="strong"><a href="#why">Why Violet</a></li>
           <li><a href="#why">Ownership gate</a></li>
           <li><a href="#why">AI providers</a></li>
-          <li><a href="#why">Deployment</a></li>
+          <li><a href="#deploy">Deployment</a></li>
           <li><a href="#modules">MSSPs</a></li>
         </ul>
       </nav>
