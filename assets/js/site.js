@@ -1,0 +1,104 @@
+(function () {
+  "use strict";
+
+  var root = document.documentElement;
+  var THEME_KEY = "violet-theme";
+
+  function writeTheme(value) {
+    try { localStorage.setItem(THEME_KEY, value); } catch (e) { /* storage blocked: keep the in-page choice only */ }
+  }
+  function effectiveTheme() {
+    var set = root.getAttribute("data-theme");
+    if (set === "light" || set === "dark") return set;
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  }
+
+  function initTheme() {
+    var toggle = document.querySelector("[data-theme-toggle]");
+    if (!toggle) return;
+    function label() {
+      var next = effectiveTheme() === "dark" ? "light" : "dark";
+      toggle.textContent = next === "light" ? "Light theme" : "Dark theme";
+      toggle.setAttribute("aria-label", "Switch to " + next + " theme");
+    }
+    toggle.addEventListener("click", function () {
+      var next = effectiveTheme() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      writeTheme(next);
+      label();
+    });
+    label();
+  }
+
+  function initMenu() {
+    var button = document.querySelector("[data-menu-toggle]");
+    var nav = document.getElementById("site-nav");
+    if (!button || !nav) return;
+    function setOpen(open) {
+      nav.setAttribute("data-open", open ? "true" : "false");
+      button.setAttribute("aria-expanded", open ? "true" : "false");
+      button.textContent = open ? "Close" : "Menu";
+    }
+    button.addEventListener("click", function () {
+      setOpen(nav.getAttribute("data-open") !== "true");
+    });
+    nav.addEventListener("click", function (event) {
+      if (event.target.closest("a")) setOpen(false);
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && nav.getAttribute("data-open") === "true") {
+        setOpen(false);
+        button.focus();
+      }
+    });
+  }
+
+  function initTabs() {
+    var list = document.querySelector("[data-tabs]");
+    if (!list) return;
+    var tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+    if (!tabs.length) return;
+
+    function select(index, focus) {
+      tabs.forEach(function (tab, i) {
+        var selected = i === index;
+        tab.setAttribute("aria-selected", selected ? "true" : "false");
+        tab.tabIndex = selected ? 0 : -1;
+        var panel = document.getElementById(tab.getAttribute("aria-controls"));
+        if (panel) panel.hidden = !selected;
+      });
+      list.style.setProperty("--vm-tab", String(index));
+      if (focus) tabs[index].focus();
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () { select(i, false); });
+      tab.addEventListener("keydown", function (event) {
+        var next = null;
+        if (event.key === "ArrowRight") next = (i + 1) % tabs.length;
+        else if (event.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
+        else if (event.key === "Home") next = 0;
+        else if (event.key === "End") next = tabs.length - 1;
+        if (next !== null) {
+          event.preventDefault();
+          select(next, true);
+        }
+      });
+    });
+    select(0, false);
+  }
+
+  function initYear() {
+    var el = document.querySelector("[data-year]");
+    if (el) el.textContent = String(new Date().getFullYear());
+  }
+
+  function start() {
+    initTheme();
+    initMenu();
+    initTabs();
+    initYear();
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
+  else start();
+})();

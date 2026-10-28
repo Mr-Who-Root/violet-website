@@ -1,0 +1,163 @@
+/* ==========================================================================
+   Violet Motion — drop-in animation library
+   14 on-brand loading & status animations. Pure CSS (one needs violet-motion.js).
+   --------------------------------------------------------------------------
+   USAGE
+     <link rel="stylesheet" href="violet-motion.css">
+     <script src="violet-motion.js" defer></script>   <!-- only for vm-count -->
+
+   Colours read your brand tokens if present (--violet-500, --red-team, etc.)
+   and fall back to Violet's defaults otherwise, so this file works standalone.
+
+   Every animation is disabled under prefers-reduced-motion (see bottom) and
+   shows a sensible static final state.
+
+   The mark (Vertex) SVG markup, reused by vm-boot / vm-pulse / vm-siem:
+     <svg class="vm-mark" viewBox="0 0 200 200" width="64" height="64" aria-label="Violet">
+       <path class="vm-s-red"    d="M48 44 L79 108"            stroke-width="22"/>
+       <path class="vm-s-blue"   d="M152 44 L121 108"          stroke-width="22"/>
+       <path class="vm-s-violet" d="M79 108 L100 150 L121 108" stroke-width="22"/>
+     </svg>
+   For vm-boot, add pathLength="1" to each of the three paths.
+   ========================================================================== */
+
+:where(.vm-mark) path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.vm-s-red{stroke:var(--red-team,#D6455C)}
+.vm-s-blue{stroke:var(--blue-team,#3E8BFF)}
+.vm-s-violet{stroke:var(--violet-500,#6E56E6)}
+
+/* 1 — BOOT  <svg class="vm-mark vm-boot vm-run" …> (paths need pathLength="1") */
+.vm-boot path{stroke-dasharray:1;stroke-dashoffset:1}
+.vm-boot.vm-run .vm-s-red{animation:vm-draw .42s ease forwards}
+.vm-boot.vm-run .vm-s-blue{animation:vm-draw .42s ease .12s forwards}
+.vm-boot.vm-run .vm-s-violet{animation:vm-draw .5s ease .4s forwards}
+@keyframes vm-draw{to{stroke-dashoffset:0}}
+
+/* 2 — MARK PULSE (indeterminate)  <svg class="vm-mark vm-pulse" …> */
+.vm-pulse .vm-s-red{animation:vm-wave 1.4s ease-in-out infinite}
+.vm-pulse .vm-s-violet{animation:vm-wave 1.4s ease-in-out .18s infinite}
+.vm-pulse .vm-s-blue{animation:vm-wave 1.4s ease-in-out .36s infinite}
+@keyframes vm-wave{0%,100%{opacity:.22}40%{opacity:1}}
+
+/* 3 — RING SPINNER (no SVG)  <span class="vm-spinner"></span>  (sizes with font-size) */
+.vm-spinner{display:inline-block;width:1.25em;height:1.25em;border-radius:50%;
+  border:2px solid var(--line,#2A2C3A);border-top-color:var(--violet-400,#8E79F0);
+  animation:vm-spin .8s linear infinite;vertical-align:-.2em}
+@keyframes vm-spin{to{transform:rotate(360deg)}}
+
+/* 4 — SCAN (red team)  <div class="vm-scan"><span class="vm-scan__beam"></span></div> */
+.vm-scan{position:relative;overflow:hidden;
+  background-image:radial-gradient(var(--line,#2A2C3A) 1px,transparent 1px);background-size:14px 14px}
+.vm-scan__beam{position:absolute;left:0;right:0;top:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--red-team,#D6455C),transparent);
+  box-shadow:0 0 12px 1px var(--red-team,#D6455C);
+  animation:vm-sweep 2s cubic-bezier(.45,0,.55,1) infinite}
+@keyframes vm-sweep{0%{transform:translateY(-8px);opacity:0}8%{opacity:1}92%{opacity:1}100%{transform:translateY(100%);opacity:0}}
+
+/* 5 — INGEST (blue team)  <div class="vm-meter"><i></i>…7×…</div> */
+.vm-meter{display:flex;align-items:flex-end;gap:5px;height:72px}
+.vm-meter i{display:block;width:7px;height:100%;border-radius:2px;transform-origin:bottom;
+  transform:scaleY(.2);background:var(--blue-team,#3E8BFF);animation:vm-meter 1.1s ease-in-out infinite}
+.vm-meter i:nth-child(2){animation-delay:.12s}.vm-meter i:nth-child(3){animation-delay:.24s}
+.vm-meter i:nth-child(4){animation-delay:.36s}.vm-meter i:nth-child(5){animation-delay:.18s}
+.vm-meter i:nth-child(6){animation-delay:.3s}.vm-meter i:nth-child(7){animation-delay:.06s}
+@keyframes vm-meter{0%,100%{transform:scaleY(.2)}50%{transform:scaleY(1)}}
+
+/* 6 — FLOW running (SVG; see demo markup)  class on the moving path: vm-flow__pulse */
+.vm-flow__node{fill:none;stroke:var(--violet-500,#6E56E6);stroke-width:2}
+.vm-flow__base{stroke:var(--line,#2A2C3A);stroke-width:1.5;fill:none}
+.vm-flow__pulse{stroke:var(--violet-400,#8E79F0);stroke-width:2;fill:none;stroke-linecap:round;
+  stroke-dasharray:6 10;animation:vm-march .6s linear infinite}
+@keyframes vm-march{to{stroke-dashoffset:-16}}
+
+/* 7 — SUCCESS (loops)  <svg class="vm-check" viewBox="0 0 52 52">
+       <circle class="vm-check__ring" cx="26" cy="26" r="22"/>
+       <path class="vm-check__tick" d="M16 27 L23 34 L37 18"/></svg> */
+.vm-check circle,.vm-check path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.vm-check__ring{stroke:var(--status-good,#46C28E);stroke-width:4;stroke-dasharray:138.23;stroke-dashoffset:138.23;animation:vm-ok-ring 2.6s ease infinite}
+.vm-check__tick{stroke:var(--status-good,#46C28E);stroke-width:5;stroke-dasharray:33;stroke-dashoffset:33;animation:vm-ok-tick 2.6s ease infinite}
+@keyframes vm-ok-ring{0%{stroke-dashoffset:138.23;opacity:1}22%{stroke-dashoffset:0}82%{stroke-dashoffset:0;opacity:1}94%{opacity:0}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes vm-ok-tick{0%,22%{stroke-dashoffset:33;opacity:1}42%{stroke-dashoffset:0}82%{stroke-dashoffset:0;opacity:1}94%{opacity:0}100%{stroke-dashoffset:0;opacity:0}}
+
+/* 8 — CRITICAL pulse
+     <span class="vm-pulse-ring"><span class="vm-pulse-ring__wave"></span><span class="vm-pulse-ring__dot"></span></span> */
+.vm-pulse-ring{position:relative;display:inline-flex;width:48px;height:48px;align-items:center;justify-content:center}
+.vm-pulse-ring__wave{position:absolute;width:40px;height:40px;transform:rotate(45deg);border-radius:6px;
+  border:2px solid var(--sev-critical,#FF5C49);animation:vm-ripple 2s ease-out infinite}
+.vm-pulse-ring__dot{width:22px;height:22px;transform:rotate(45deg);border-radius:4px;background:var(--sev-critical,#FF5C49)}
+@keyframes vm-ripple{0%{transform:rotate(45deg) scale(.7);opacity:.7}70%{opacity:0}100%{transform:rotate(45deg) scale(2);opacity:0}}
+
+/* 9 — SKELETON  <div class="vm-skeleton"><div class="vm-skeleton__row"></div>…</div> */
+.vm-skeleton{display:flex;flex-direction:column;gap:10px}
+.vm-skeleton__row{height:12px;border-radius:3px;background:var(--surface-2,#1C1E2A);position:relative;overflow:hidden}
+.vm-skeleton__row::after{content:"";position:absolute;inset:0;transform:translateX(-100%);
+  background:linear-gradient(90deg,transparent,var(--violet-tint,rgba(110,86,230,.12)),transparent);
+  animation:vm-shim 1.4s ease-in-out infinite}
+.vm-skeleton__row:nth-child(2)::after{animation-delay:.12s}
+.vm-skeleton__row:nth-child(3)::after{animation-delay:.24s}
+@keyframes vm-shim{to{transform:translateX(100%)}}
+
+/* 10 — RISK COUNT-UP (needs violet-motion.js)
+     <div class="vm-count"><span class="vm-count__num" data-vm-count="73"></span>
+       <div class="vm-count__bar"><div class="vm-count__fill"></div></div></div>  */
+.vm-count{display:flex;flex-direction:column;gap:12px}
+.vm-count__num{font-family:var(--mono,"IBM Plex Mono",monospace);font-size:46px;font-weight:500;line-height:1;
+  color:var(--text-primary,#ECEDF2);font-variant-numeric:tabular-nums}
+.vm-count__bar{height:6px;border-radius:3px;background:var(--surface-2,#1C1E2A);overflow:hidden}
+.vm-count__fill{height:100%;width:0;border-radius:3px;background:var(--sev-high,#FF8A3D);transition:width .05s linear}
+
+/* 11 — PROGRESS  determinate: set --vm-progress (e.g. style="--vm-progress:67%").
+     indeterminate loop: add vm-progress--loop. */
+.vm-progress{height:6px;border-radius:3px;background:var(--surface-2,#1C1E2A);overflow:hidden}
+.vm-progress__fill{height:100%;border-radius:3px;background:var(--violet-500,#6E56E6);
+  width:var(--vm-progress,0%);transition:width .3s cubic-bezier(.4,0,.2,1)}
+.vm-progress--loop .vm-progress__fill{width:0;animation:vm-fill 2.4s cubic-bezier(.4,0,.2,1) infinite}
+@keyframes vm-fill{0%{width:0}75%{width:100%}100%{width:100%}}
+
+/* 12 — TOAST  <div class="vm-toast">…</div>  (plays on insert; left border = status hue) */
+.vm-toast{display:flex;gap:10px;align-items:flex-start;
+  background:var(--surface-1,#15161F);border:1px solid var(--line,#2A2C3A);
+  border-left:3px solid var(--status-good,#46C28E);border-radius:6px;padding:11px 13px;
+  animation:vm-toast-in .36s cubic-bezier(.4,0,.2,1) both}
+.vm-toast--warning{border-left-color:var(--status-warning,#F2C94C)}
+.vm-toast--critical{border-left-color:var(--sev-critical,#FF5C49)}
+@keyframes vm-toast-in{from{transform:translateX(118%);opacity:0}to{transform:translateX(0);opacity:1}}
+
+/* 13 — TABS  indicator slides; set --vm-tab (0,1,2…) to move it.
+     <div class="vm-tabbar">…tabs…<span class="vm-tab-indicator"></span></div>
+     indicator width should equal one tab (e.g. 33.33%). */
+.vm-tabbar{position:relative;display:flex;border-bottom:1px solid var(--line,#2A2C3A)}
+.vm-tab-indicator{position:absolute;bottom:-1px;left:0;height:2px;background:var(--violet-500,#6E56E6);
+  width:var(--vm-tab-w,33.33%);transform:translateX(calc(var(--vm-tab,0) * 100%));
+  transition:transform .3s cubic-bezier(.4,0,.2,1)}
+
+/* 14 — CONNECT TO SIEM (SVG; see demo markup)
+     connecting line: vm-siem__connecting · connected line: vm-siem__connected
+     box: vm-siem__box · check: vm-siem__check */
+.vm-siem__box{fill:none;stroke:var(--line,#2A2C3A);stroke-width:1.5;animation:vm-siem-box 3.5s infinite}
+.vm-siem__base{stroke:var(--line,#2A2C3A);stroke-width:1.5;fill:none}
+.vm-siem__connecting{stroke:var(--violet-400,#8E79F0);stroke-width:2;fill:none;stroke-linecap:round;
+  stroke-dasharray:6 10;animation:vm-march .6s linear infinite, vm-siem-cvis 3.5s infinite}
+.vm-siem__connected{stroke:var(--status-good,#46C28E);stroke-width:2;fill:none;stroke-linecap:round;opacity:0;animation:vm-siem-dvis 3.5s infinite}
+.vm-siem__check{stroke:var(--status-good,#46C28E);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:20;stroke-dashoffset:20;animation:vm-siem-check 3.5s infinite}
+@keyframes vm-siem-box{0%,50%{stroke:var(--line,#2A2C3A)}56%,90%{stroke:var(--status-good,#46C28E)}100%{stroke:var(--line,#2A2C3A)}}
+@keyframes vm-siem-cvis{0%,48%{opacity:1}54%,100%{opacity:0}}
+@keyframes vm-siem-dvis{0%,50%{opacity:0}56%,90%{opacity:1}96%,100%{opacity:0}}
+@keyframes vm-siem-check{0%,52%{stroke-dashoffset:20;opacity:1}62%{stroke-dashoffset:0}90%{stroke-dashoffset:0;opacity:1}96%{opacity:0}100%{opacity:0}}
+
+/* -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce){
+  .vm-boot path,.vm-check__ring,.vm-check__tick{stroke-dashoffset:0!important;opacity:1!important}
+  .vm-pulse .vm-s-red,.vm-pulse .vm-s-blue,.vm-pulse .vm-s-violet{opacity:1!important}
+  .vm-spinner,.vm-scan__beam,.vm-meter i,.vm-flow__pulse,.vm-pulse-ring__wave,
+  .vm-skeleton__row::after,.vm-progress--loop .vm-progress__fill,.vm-toast,
+  .vm-check__ring,.vm-check__tick,.vm-siem__box,.vm-siem__connecting,.vm-siem__connected,.vm-siem__check{
+    animation:none!important}
+  .vm-toast{transform:none!important;opacity:1!important}
+  .vm-scan__beam{opacity:.001}
+  .vm-siem__connecting{opacity:0!important}
+  .vm-siem__connected{opacity:1!important}
+  .vm-siem__check{stroke-dashoffset:0!important;opacity:1!important}
+  .vm-siem__box{stroke:var(--status-good,#46C28E)!important}
+}
