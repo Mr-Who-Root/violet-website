@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..800&family=Hanken+Grotesk:wght@700&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400..700&display=swap">
 <link rel="stylesheet" href="assets/motion/violet-motion.css?v=b8c4e7733e">
-<link rel="stylesheet" href="assets/css/site.css?v=b2497213f0">
+<link rel="stylesheet" href="assets/css/site.css?v=0e93527697">
 <script src="assets/js/site.js?v=67e4901fdc" defer></script>
 <script src="assets/js/art.js?v=268a24bd73" defer></script>
 </head>
@@ -180,13 +180,24 @@
       <div class="problem__body">
         <span class="label">The reality for security teams</span>
         <h2 id="problem-title">Good security work needs experts. <b>Most teams can't hire enough of them.</b></h2>
-        <figure class="queue" aria-label="Illustration: alerts keep arriving while one analyst is on shift">
-          <div class="queue__head"><span class="queue__title">Alert queue</span><span class="queue__state"><span class="queue__dot" aria-hidden="true"></span>Waiting for an analyst</span></div>
-          <div class="queue__window" aria-hidden="true">
-            <ul class="queue__list"><li><span class="sev sev--critical"><i></i>Critical</span><span class="queue__event">Repeated failed logins</span><span class="queue__src">vpn-gw-1</span></li><li><span class="sev sev--high"><i></i>High</span><span class="queue__event">Unusual database query</span><span class="queue__src">db-prod-2</span></li><li><span class="sev sev--medium"><i></i>Medium</span><span class="queue__event">New admin account</span><span class="queue__src">idp</span></li><li><span class="sev sev--high"><i></i>High</span><span class="queue__event">Malware signature match</span><span class="queue__src">ws-114</span></li><li><span class="sev sev--low"><i></i>Low</span><span class="queue__event">Port 8443 newly open</span><span class="queue__src">web-03</span></li><li><span class="sev sev--medium"><i></i>Medium</span><span class="queue__event">Impossible travel sign-in</span><span class="queue__src">sso</span></li><li><span class="sev sev--critical"><i></i>Critical</span><span class="queue__event">Repeated failed logins</span><span class="queue__src">vpn-gw-1</span></li><li><span class="sev sev--high"><i></i>High</span><span class="queue__event">Unusual database query</span><span class="queue__src">db-prod-2</span></li><li><span class="sev sev--medium"><i></i>Medium</span><span class="queue__event">New admin account</span><span class="queue__src">idp</span></li><li><span class="sev sev--high"><i></i>High</span><span class="queue__event">Malware signature match</span><span class="queue__src">ws-114</span></li><li><span class="sev sev--low"><i></i>Low</span><span class="queue__event">Port 8443 newly open</span><span class="queue__src">web-03</span></li><li><span class="sev sev--medium"><i></i>Medium</span><span class="queue__event">Impossible travel sign-in</span><span class="queue__src">sso</span></li></ul>
-          </div>
-          <div class="queue__foot"><span class="queue__avatar" aria-hidden="true">L1</span>1 analyst on shift</div>
-        </figure>
+        <svg class="overload" viewBox="0 0 240 180" aria-hidden="true" focusable="false">
+          <ellipse cx="120" cy="170" rx="70" ry="7" fill="#E2E3EC"/>
+          <path d="M120 36 V22 M106 39 L101 28 M134 39 L139 28" stroke="#D6455C" stroke-width="3.5" stroke-linecap="round"/>
+          <rect x="108" y="128" width="24" height="22" fill="#EFEFF4" stroke="#14151C" stroke-width="2.5"/>
+          <rect x="84" y="148" width="72" height="10" rx="4" fill="#E2E3EC" stroke="#14151C" stroke-width="2.5"/>
+          <rect x="52" y="48" width="136" height="88" rx="10" fill="#EFEFF4" stroke="#14151C" stroke-width="2.5"/>
+          <rect x="62" y="58" width="116" height="64" rx="5" fill="#0E0F16"/>
+          <path d="M72 70 H90 M72 80 H86 M72 90 H92 M150 70 H168 M154 80 H168 M148 90 H168" stroke="#4A4D60" stroke-width="3" stroke-linecap="round"/>
+          <g class="overload__alert">
+            <path d="M120 68 L141 106 H99 Z" fill="#D6455C" stroke="#D6455C" stroke-width="3" stroke-linejoin="round"/>
+            <rect x="118" y="80" width="4" height="14" rx="2" fill="#FFFFFF"/>
+            <circle cx="120" cy="99.5" r="2.4" fill="#FFFFFF"/>
+          </g>
+          <g transform="translate(10 26) rotate(-10)"><g class="overload__pop overload__pop--1"><rect width="36" height="22" rx="6" fill="#FFFFFF" stroke="#14151C" stroke-width="2.5"/><path d="M9 6 L14 11 L9 16 L4 11 Z" fill="#FF5C49"/><rect x="18" y="9" width="12" height="4" rx="2" fill="#E2E3EC"/></g></g>
+          <g transform="translate(194 14) rotate(8)"><g class="overload__pop overload__pop--2"><rect width="36" height="22" rx="6" fill="#FFFFFF" stroke="#14151C" stroke-width="2.5"/><path d="M9 6 L14 15 H4 Z" fill="#FF8A3D"/><rect x="18" y="9" width="12" height="4" rx="2" fill="#E2E3EC"/></g></g>
+          <g transform="translate(4 98) rotate(-6)"><g class="overload__pop overload__pop--3"><rect width="36" height="22" rx="6" fill="#FFFFFF" stroke="#14151C" stroke-width="2.5"/><rect x="5" y="7" width="8" height="8" fill="#F2C94C"/><rect x="18" y="9" width="12" height="4" rx="2" fill="#E2E3EC"/></g></g>
+          <g transform="translate(200 92) rotate(10)"><g class="overload__pop overload__pop--4"><rect width="36" height="22" rx="6" fill="#FFFFFF" stroke="#14151C" stroke-width="2.5"/><circle cx="9" cy="11" r="4" fill="#46C28E"/><rect x="18" y="9" width="12" height="4" rx="2" fill="#E2E3EC"/></g></g>
+        </svg>
         <p>Red teamers chain tools by hand, so assessments happen rarely. Blue teamers read logs line by line while an incident unfolds. L1 analysts decide what to escalate without the depth to understand the attack.</p>
         <p>None of them is doing it wrong. The expertise is gated. Violet lowers that gate without lowering the quality of the work.</p>
       </div>
